@@ -1,0 +1,10 @@
+site_name: Benoit Pimpaud
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.tabs
+extra_css:
+  - stylesheets/extra.css
+    
