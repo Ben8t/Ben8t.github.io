@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-  color: #1c64ff;
+  color: #000000;
 }
 
 h1,
@@ -360,6 +360,14 @@ header.masthead p {
     margin-top: 5rem;
 }
 
+.contact-box a{
+  color: #979797 !important;
+}
+
+.contact-box a:hover{
+  color: #000000 !important;
+}
+
 .modal-title{
   color: #000000
 }
@@ -377,4 +385,8 @@ header.masthead p {
   background-color: #000000;
   font-size: 0.8em;
   font-weight: 100;
+}
+
+.text-date-xp{
+  color: #979797;
 }
