@@ -4,14 +4,19 @@ html {
   height: 100%;
 }
 
+@font-face {
+  font-family: "object-sans";
+  src: url("ObjectSans-Regular.otf");
+}
+
 body {
-  font-family: 'Space Mono', monospace;
+  font-family: 'object-sans';
 }
 
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #64ffda;
+  border-color: #000000;
 }
 
 hr.light {
@@ -26,7 +31,7 @@ a {
 }
 
 a:hover {
-  color: #64ffda;
+  color: #1c64ff;
 }
 
 h1,
@@ -35,15 +40,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'object-sans'
 }
 
 .bg-primary {
-  background: linear-gradient(red,#64ffda) !important;
+  background: linear-gradient(red,#000000) !important;
 }
 
 .bg-dark {
-  background-color: green !important;
+  background-color: rgb(0, 0, 0) !important;
 }
 
 .text-faded {
@@ -81,8 +86,8 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background : linear-gradient(#32e8b5,#43ddd5) !important;
-  font-family: 'Space Mono', monospace;
+  background : #000000 !important;
+  font-family: 'object-sans';
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -92,7 +97,7 @@ img::-moz-selection {
   font-weight: 700;
   text-transform: uppercase;
   color: #64ffda;
-  font-family: 'Space Mono', monospace;
+  font-family: 'object-sans';
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
@@ -219,7 +224,8 @@ header.masthead p {
 }
 
 #services{
-  background: linear-gradient(-90deg,#32e8b5,#43ddd5) !important;
+  /* background: linear-gradient(-90deg,#32e8b5,#43ddd5) !important; */
+  background-color: #000000;
   color : #fff;
 }
 
@@ -239,7 +245,7 @@ header.masthead p {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(28, 68, 91, 0.9);
+  background: rgba(0, 0, 0, 0.9);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -256,7 +262,7 @@ header.masthead p {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   padding: 0 15px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'object-sans';
   color: white;
 }
 
@@ -299,8 +305,8 @@ header.masthead p {
   font-weight: 700;
   text-transform: uppercase;
   border: none;
-  border-radius: 300px;
-  font-family: 'Space Mono', monospace;
+  border-radius: 10px;
+  font-family: 'object-sans';
 }
 
 .btn-xl {
@@ -308,23 +314,23 @@ header.masthead p {
 }
 
 .btn-primary {
-  background: linear-gradient(#32e8b5,#43ddd5) !important;
-  border-color: linear-gradient(#64ffda,#574BCD) !important;
+  background: #000000 !important;
+  border-color: #000000 !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
-  background: linear-gradient(#32e8b5,#43ddd5) !important;
+  background: #000000 !important;
 }
 
 .btn-primary:active, .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(64, 240, 187, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5) !important;
 }
 
 .text-content{
   color: rgb(200, 200, 200) !important;
   padding: 0.8rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'object-sans';
 }
 
 .text-content a{
@@ -352,4 +358,23 @@ header.masthead p {
 
 .contact-box{
     margin-top: 5rem;
+}
+
+.modal-title{
+  color: #000000
+}
+
+.modal-body{
+  color: #000000;
+}
+
+.modal-footer{
+  color: #000000;
+}
+
+.badge{
+  color: white;
+  background-color: #000000;
+  font-size: 0.8em;
+  font-weight: 100;
 }
