@@ -390,3 +390,9 @@ header.masthead p {
 .text-date-xp{
   color: #979797;
 }
+
+
+#header_news{
+  background-color: black;
+  padding: 1rem;
+}
