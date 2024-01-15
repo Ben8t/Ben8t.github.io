@@ -6,4 +6,10 @@ image: "/images/avatar.png"
 draft: false
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.
+I’m a full-stack data engineer, passionate about the field and its challenges. I have worked within different industries such as journalism, retail, professional sport, and music.
+
+Through these missions, I have learned that sharing about our own experiences is very powerful to help others make their own way but also to evolve ourselves.
+
+Like many in the same positions, I love to mix ideas from different themes and influences to build creative solutions in my projects.
+
+I'm very open to new ideas so if you see some pitfalls or just want to share resources, don’t hesitate to reach me by email at pimpaudben@gmail.com.
