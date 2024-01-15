@@ -1,0 +1,31 @@
+<div class="bg-body dark:bg-darkmode-body">
+    {{ $image:= .Params.image }}
+    {{ if $image }}
+      {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mb-6 w-full rounded") }}
+    {{ end }}
+    <h4 class="mb-3">
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h4>
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        👔
+        {{ $categories:= .Params.categories }}
+        {{ range $i,$p:= $categories }}
+          <a
+            href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/"
+            class="ms-1"
+            >{{ . }}{{ if ne $i (sub (len $categories) 1) }}
+              {{ ", " }}
+            {{ end }}
+          </a>
+        {{ end }}
+      </li>
+    </ul>
+    <p class="mb-6">{{ .Params.summary }}</p>
+    <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+      👉 {{ i18n "read_more" }}
+    </a>
+  </div>
+  

@@ -1,0 +1,35 @@
+############# English navigation ##############
+
+# main menu
+[[main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[main]]
+name = "About"
+url = "about/"
+weight = 2
+
+[[main]]
+name = "Experiences"
+url = "experiences/"
+weight = 3
+
+[[main]]
+name = "Newsletter"
+url = "newsletter/"
+weight = 4
+
+[[main]]
+weight = 5
+name = "Blog"
+url = "blog/"
+
+
+
+# footer menu
+[[footer]]
+name = "About"
+url = "about/"
+weight = 1
