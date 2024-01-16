@@ -310,6 +310,7 @@
       "top-0",
       "top-1.5",
       "top-[4px]",
+      "twitter-tweet",
       "uppercase",
       "w-[30px]",
       "w-full",
@@ -324,11 +325,13 @@
       "zoomable"
     ],
     "ids": [
+      "3d-printing",
       "TableOfContents",
       "accordions",
       "blockquote",
       "button",
       "code-and-syntax-highlighting",
+      "conclusion",
       "creative-design",
       "custom-video",
       "did-you-come-here-for-something-in-particular",
@@ -354,6 +357,7 @@
       "notice",
       "ordered-list",
       "paragraph",
+      "plotting-in-2d-or-3d",
       "privacy-policy-changes",
       "protection-of-personal--information",
       "responsibility-of-contributors",
@@ -364,7 +368,10 @@
       "tables",
       "theme-switcher",
       "unordered-list",
+      "using-your-data",
       "we-know-youre-dealing-in-stolen-ore",
+      "where-do-we-find-elevation-data",
+      "workspace-and-installation",
       "youtube-video"
     ]
   }
