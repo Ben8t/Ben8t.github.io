@@ -2,11 +2,11 @@
 title: "Hey, I am Benoit!"
 meta_title: "About"
 description: "this is meta description"
-image: "/images/avatar.png"
+image: "/images/profile.png"
 draft: false
 ---
 
-I’m a full-stack data engineer, passionate about the field and its challenges. I have worked within different industries such as journalism, retail, professional sport, and music.
+I’m a full-stack data engineer, passionate about the field and its challenges. I have worked within different industries such as journalism, retail, professional sport, music and now software.
 
 Through these missions, I have learned that sharing about our own experiences is very powerful to help others make their own way but also to evolve ourselves.
 
