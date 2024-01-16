@@ -3,7 +3,7 @@ title: "Rayshader Experiment"
 meta_title: ""
 description: "this is meta description"
 date: 2019-01-24T00:00:00Z
-image: "/images/blogs/rayshader_experiment/rayshader_experiment.png"
+image: "/images/blogs/01_rayshader_experiment/rayshader_experiment.png"
 categories: ["Data-Viz"]
 tags: ["R", "ggplot", "data-viz"]
 draft: false
@@ -103,7 +103,7 @@ elmat = matrix(raster::extract(localtif,raster::extent(localtif),buffer=1000),
     plot_map(rotate=0)
 ```
 
-![](/images/blogs/rayshader_experiment/top_render.png)
+![](/images/blogs/01_rayshader_experiment/top_render.png)
 
 For 3d plot:
 
@@ -116,7 +116,7 @@ elmat = matrix(raster::extract(localtif,raster::extent(localtif),buffer=1000),
     plot_3d(elmat)
 ```
 
-![](/images/blogs/rayshader_experiment/3d_render.png)
+![](/images/blogs/01_rayshader_experiment/3d_render.png)
 
 # 3D printing
 
