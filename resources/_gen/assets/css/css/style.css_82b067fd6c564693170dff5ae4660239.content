@@ -1911,6 +1911,9 @@ input#nav-toggle:checked ~ #nav-menu {
 .m-1 {
   margin: 0.25rem;
 }
+.m-20 {
+  margin: 5rem;
+}
 .m-3 {
   margin: 0.75rem;
 }
@@ -1927,11 +1930,17 @@ input#nav-toggle:checked ~ #nav-menu {
 .mb-14 {
   margin-bottom: 3.5rem;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .mb-3 {
   margin-bottom: 0.75rem;
 }
 .mb-4 {
   margin-bottom: 1rem;
+}
+.mb-40 {
+  margin-bottom: 10rem;
 }
 .mb-6 {
   margin-bottom: 1.5rem;
@@ -3207,6 +3216,10 @@ input#nav-toggle:checked ~ #nav-menu {
     width: 83.33333333333334%;
   }
 
+  .md\:order-1 {
+    order: 1;
+  }
+
   .md\:order-2 {
     order: 2;
   }
@@ -3355,6 +3368,10 @@ input#nav-toggle:checked ~ #nav-menu {
 
 @media (min-width: 768px) {
 
+  .md\:order-1 {
+    order: 1;
+  }
+
   .md\:order-2 {
     order: 2;
   }
@@ -3407,8 +3424,16 @@ input#nav-toggle:checked ~ #nav-menu {
     width: auto;
   }
 
-  .lg\:\!max-w-\[800px\] {
-    max-width: 800px !important;
+  .lg\:\!max-w-\[00px\] {
+    max-width: 00px !important;
+  }
+
+  .lg\:\!max-w-\[200px\] {
+    max-width: 200px !important;
+  }
+
+  .lg\:\!max-w-\[300px\] {
+    max-width: 300px !important;
   }
 
   .lg\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
