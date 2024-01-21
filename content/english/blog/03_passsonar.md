@@ -9,8 +9,6 @@ tags: ["R", "ggplot", "data-viz", "football"]
 draft: false
 ---
 
-# PassSonar: Visualizing Player Interactions in Soccer Analytics
-
 Democratized thanks to Michael Lewis’ Moneyball (both the book and then the movie adaptation), baseball and basketball have already gone quite far in the realm of sports analytics. Soccer is now also clearly in the place to take the next step, with a lot of work being done by companies like Opta and Statsbomb to explain and create analyses and statistical models.
 
 Moreover, a small but growing community is advancing the boundaries and publishing influential work, coming forth with great ideas that have even been [sometimes followed by professional clubs](https://twitter.com/experimental361/status/1130171706604179457).
