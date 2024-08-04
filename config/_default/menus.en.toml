@@ -16,16 +16,6 @@ name = "Experiences"
 url = "experiences/"
 weight = 3
 
-[[main]]
-name = "Newsletter"
-url = "newsletter/"
-weight = 4
-
-[[main]]
-weight = 5
-name = "Blog"
-url = "blog/"
-
 
 
 # footer menu

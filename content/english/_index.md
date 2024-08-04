@@ -29,10 +29,10 @@ features:
     image: "/images/top_mind.jpg"
     content: "Recent thoughts & projects"
     bulletpoints:
-      - "Building CLI with [Charm](https://google.com) & learning Go"
-      - "Creating a Machine Learning Course for an engineering school"
-      - "Write a book"
-      - "Plan 2024 trips"
+      - "Sport, friends, drinks, vacation"
+      - "Moving forward on writing a book by sharing thoughts on new Substack (https://liminalduality.substack.com/)"
+      - "Learn and improve my knowledge around product, sales & communication"
+      - "Learn Next.js and Tailwind CSS"
     button:
       enable: false
       label: ""
