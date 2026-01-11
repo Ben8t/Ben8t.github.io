@@ -39,7 +39,7 @@ export default function Home() {
             <span className="text-primary">Engineering.</span>
           </h1>
           <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-8">
-            A product engineer obsessed with craft—bridging data pipelines, thoughtful UX, 
+            I'm aproduct engineer obsessed with craft—bridging data pipelines, thoughtful UX, 
             and ideas drawn from art, science, and everyday curiosity. Building things that matter.
           </p>
           <div className="mt-10 flex gap-4">
