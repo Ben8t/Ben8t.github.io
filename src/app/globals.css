@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #D97757;
+  
+  --color-background-light: #F5F5F0;
+  --color-background-dark: #1A1A1A;
+  
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #262626;
+  
+  --color-text-main-light: #1F1F1F;
+  --color-text-main-dark: #E5E5E5;
+  --color-text-muted-light: #666666;
+  --color-text-muted-dark: #A3A3A3;
+  
+  --color-border-light: #E5E5E5;
+  --color-border-dark: #404040;
+  
+  --font-display: "Instrument Serif", serif;
+  --font-body: "Inter", sans-serif;
+  
+  --radius: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+:root {
+  --background: #F5F5F0;
+  --foreground: #1F1F1F;
+}
+
+.dark {
+  --background: #1A1A1A;
+  --foreground: #E5E5E5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+}
+
+/* Explicit font utility classes */
+.font-display {
+  font-family: "Instrument Serif", serif;
+}
+
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+::selection {
+  background-color: rgba(217, 119, 87, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5);
+}
+
+/* Project card hover effects */
+.project-card:hover .project-image {
+  transform: scale(1.03);
+}
