@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
@@ -106,8 +107,19 @@ export default function Home() {
                 href={project.id === 1 ? "/projects/the-new-printer" : "/projects"}
                 className="group cursor-pointer project-card flex flex-col gap-4"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 border border-border-light dark:border-border-dark flex items-center justify-center">
-                  <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border-light dark:border-border-dark">
+                  {project.id === 1 ? (
+                    <Image
+                      src="/new-printer-thumbnail.jpg"
+                      alt="The New Printer project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                      <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-xs font-bold uppercase tracking-wider text-primary">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -64,8 +65,13 @@ export default function TheNewPrinterPage() {
       </header>
 
       {/* Project Image/Visual */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 aspect-video mb-16 md:mb-24 border border-border-light dark:border-border-dark flex items-center justify-center">
-        <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Project Visual</span>
+      <div className="relative overflow-hidden rounded-2xl aspect-video mb-16 md:mb-24 border border-border-light dark:border-border-dark">
+        <Image
+          src="/new-printer-thumbnail.jpg"
+          alt="The New Printer project overview"
+          fill
+          className="object-cover"
+        />
       </div>
 
       {/* Content sections */}

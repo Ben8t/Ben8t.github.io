@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
@@ -81,8 +82,13 @@ export default function ProjectsPage() {
             href="/projects/the-new-printer"
             className="group cursor-pointer project-card md:col-span-2 grid md:grid-cols-2 gap-8 items-center"
           >
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 aspect-[4/3] md:aspect-auto md:h-[500px] w-full border border-border-light dark:border-border-dark flex items-center justify-center">
-              <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-auto md:h-[500px] w-full border border-border-light dark:border-border-dark">
+              <Image
+                src="/new-printer-thumbnail.jpg"
+                alt="The New Printer project thumbnail"
+                fill
+                className="object-cover"
+              />
               <div className="absolute top-4 left-4 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest border border-white/20">
                 Featured
               </div>
