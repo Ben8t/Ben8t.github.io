@@ -13,11 +13,11 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project Two",
-    category: "Category",
+    title: "Gotta Grid'em All",
+    category: "Data Visualization",
     year: "2024",
-    description: "Project description placeholder. Add your project details here.",
-    tags: ["Tag 1", "Tag 2"],
+    description: "Exploring how strategic gridline design can enhance chart comprehension. Using creative background patterns to reveal data relationships and improve visual storytelling.",
+    tags: ["Data Viz", "Design", "Python", "Matplotlib"],
   },
   {
     id: 3,
@@ -129,9 +129,24 @@ export default function ProjectsPage() {
 
         {/* Other Projects */}
         {otherProjects.map((project) => (
-          <article key={project.id} className="group cursor-pointer project-card flex flex-col gap-6">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 aspect-[4/3] border border-border-light dark:border-border-dark flex items-center justify-center">
-              <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
+          <Link
+            key={project.id}
+            href={project.id === 2 ? "/projects/gotta-gridem-all" : "#"}
+            className="group cursor-pointer project-card flex flex-col gap-6"
+          >
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] border border-border-light dark:border-border-dark">
+              {project.id === 2 ? (
+                <Image
+                  src="/gotta-gridem-all-thumbnail.png"
+                  alt="Gotta Grid'em All project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                  <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
+                </div>
+              )}
             </div>
             <div className="space-y-2">
               <div className="flex justify-between items-baseline">
@@ -156,7 +171,7 @@ export default function ProjectsPage() {
                 ))}
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </div>

@@ -10,8 +10,8 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project Two",
-    category: "Category",
+    title: "Gotta Grid'em All",
+    category: "Data Visualization",
     year: "2024",
   },
   {
@@ -104,7 +104,13 @@ export default function Home() {
             {projects.map((project) => (
               <Link
                 key={project.id}
-                href={project.id === 1 ? "/projects/the-new-printer" : "/projects"}
+                href={
+                  project.id === 1
+                    ? "/projects/the-new-printer"
+                    : project.id === 2
+                    ? "/projects/gotta-gridem-all"
+                    : "/projects"
+                }
                 className="group cursor-pointer project-card flex flex-col gap-4"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border-light dark:border-border-dark">
@@ -112,6 +118,13 @@ export default function Home() {
                     <Image
                       src="/new-printer-thumbnail.jpg"
                       alt="The New Printer project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 2 ? (
+                    <Image
+                      src="/gotta-gridem-all-thumbnail.png"
+                      alt="Gotta Grid'em All project thumbnail"
                       fill
                       className="object-cover"
                     />
