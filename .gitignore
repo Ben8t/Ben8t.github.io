@@ -35,3 +35,6 @@ next-env.d.ts
 
 # Sample folder (design references)
 /sample/
+
+# Claude Code local settings
+.claude/settings.local.json

@@ -3,9 +3,9 @@ import Link from "next/link";
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    category: "Category",
-    year: "2024",
+    title: "The New Printer",
+    category: "CLI Tool",
+    year: "2025",
   },
   {
     id: 2,
@@ -101,7 +101,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {projects.map((project) => (
-              <article key={project.id} className="group cursor-pointer project-card flex flex-col gap-4">
+              <Link
+                key={project.id}
+                href={project.id === 1 ? "/projects/the-new-printer" : "/projects"}
+                className="group cursor-pointer project-card flex flex-col gap-4"
+              >
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 border border-border-light dark:border-border-dark flex items-center justify-center">
                   <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
                 </div>
@@ -116,7 +120,7 @@ export default function Home() {
                     {project.year}
                   </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

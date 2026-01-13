@@ -1,12 +1,14 @@
+import Link from "next/link";
+
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    category: "Category",
-    year: "2024",
-    description: "Project description placeholder. Add your project details here.",
+    title: "The New Printer",
+    category: "CLI Tool",
+    year: "2025",
+    description: "A lightweight CLI tool that transforms web articles into print-ready PDFs with magazine-style aesthetic. Because reading on paper just feels better.",
     featured: true,
-    tags: ["Tag 1", "Tag 2", "Tag 3"],
+    tags: ["Python", "CLI", "LaTeX", "Typography"],
   },
   {
     id: 2,
@@ -75,7 +77,10 @@ export default function ProjectsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-24">
         {/* Featured Project */}
         {featuredProject && (
-          <article className="group cursor-pointer project-card md:col-span-2 grid md:grid-cols-2 gap-8 items-center">
+          <Link
+            href="/projects/the-new-printer"
+            className="group cursor-pointer project-card md:col-span-2 grid md:grid-cols-2 gap-8 items-center"
+          >
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 aspect-[4/3] md:aspect-auto md:h-[500px] w-full border border-border-light dark:border-border-dark flex items-center justify-center">
               <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
               <div className="absolute top-4 left-4 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest border border-white/20">
@@ -113,7 +118,7 @@ export default function ProjectsPage() {
                 </span>
               </div>
             </div>
-          </article>
+          </Link>
         )}
 
         {/* Other Projects */}
