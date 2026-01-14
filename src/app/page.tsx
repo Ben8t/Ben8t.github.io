@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const projects = [
   {
@@ -16,19 +19,53 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Three",
-    category: "Category",
-    year: "2023",
+    title: "Football Analytics",
+    category: "Data Science & Visualization",
+    year: "2019",
   },
   {
     id: 4,
-    title: "Project Four",
-    category: "Category",
-    year: "2023",
+    title: "Kestra Governance Assets",
+    category: "Product Design & Engineering",
+    year: "2024",
+  },
+  {
+    id: 5,
+    title: "Kestra Playground",
+    category: "Product Design & UX",
+    year: "2024",
+  },
+  {
+    id: 6,
+    title: "Kestra Notion Plugin",
+    category: "Plugin Development",
+    year: "2024",
+  },
+  {
+    id: 7,
+    title: "SQL is not designed for analytics",
+    category: "Conference & Thought Leadership",
+    year: "2024",
   },
 ];
 
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function Home() {
+  const [shuffledProjects, setShuffledProjects] = useState(projects);
+
+  useEffect(() => {
+    setShuffledProjects(shuffleArray(projects));
+  }, []);
+
   return (
     <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
       {/* Hero Section */}
@@ -40,7 +77,7 @@ export default function Home() {
             <span className="text-primary">Engineering.</span>
           </h1>
           <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-8">
-            I'm aproduct engineer obsessed with craft—bridging data pipelines, thoughtful UX, 
+            I'm a product engineer obsessed with craft—bridging data pipelines, thoughtful UX,
             and ideas drawn from art, science, and everyday curiosity. Building things that matter.
           </p>
           <div className="mt-10 flex gap-4">
@@ -101,7 +138,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {projects.map((project) => (
+            {shuffledProjects.map((project) => (
               <Link
                 key={project.id}
                 href={
@@ -109,6 +146,16 @@ export default function Home() {
                     ? "/projects/the-new-printer"
                     : project.id === 2
                     ? "/projects/gotta-gridem-all"
+                    : project.id === 3
+                    ? "/projects/football-analytics"
+                    : project.id === 4
+                    ? "/projects/kestra-governance-assets"
+                    : project.id === 5
+                    ? "/projects/kestra-playground"
+                    : project.id === 6
+                    ? "/projects/kestra-notion-plugin"
+                    : project.id === 7
+                    ? "/projects/semantic-layer-conference"
                     : "/projects"
                 }
                 className="group cursor-pointer project-card flex flex-col gap-4"
@@ -125,6 +172,41 @@ export default function Home() {
                     <Image
                       src="/gotta-gridem-all-thumbnail.png"
                       alt="Gotta Grid'em All project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 3 ? (
+                    <Image
+                      src="/football-analytics-thumbnail.jpg"
+                      alt="Football Analytics project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 4 ? (
+                    <Image
+                      src="/kestra-governance-assets-thumbnail.jpg"
+                      alt="Kestra Governance Assets project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 5 ? (
+                    <Image
+                      src="/kestra-playground-thumbnail.jpg"
+                      alt="Kestra Playground project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 6 ? (
+                    <Image
+                      src="/kestra-notion-plugin-thumbnail.png"
+                      alt="Kestra Notion Plugin project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 7 ? (
+                    <Image
+                      src="/semantic-layer-conference-thumbnail.png"
+                      alt="SQL is not designed for analytics conference thumbnail"
                       fill
                       className="object-cover"
                     />

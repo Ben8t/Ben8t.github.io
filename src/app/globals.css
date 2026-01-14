@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #D97757;
+  --color-primary: #3B82F6;
   
   --color-background-light: #F5F5F0;
   --color-background-dark: #1A1A1A;
@@ -56,7 +56,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(217, 119, 87, 0.3);
+  background-color: rgba(59, 130, 246, 0.3);
 }
 
 ::-webkit-scrollbar {

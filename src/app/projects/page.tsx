@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const projects = [
   {
@@ -8,7 +11,6 @@ const projects = [
     category: "CLI Tool",
     year: "2025",
     description: "A lightweight CLI tool that transforms web articles into print-ready PDFs with magazine-style aesthetic. Because reading on paper just feels better.",
-    featured: true,
     tags: ["Python", "CLI", "LaTeX", "Typography"],
   },
   {
@@ -21,27 +23,64 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Three",
-    category: "Category",
-    year: "2023",
-    description: "Project description placeholder. Add your project details here.",
-    tags: ["Tag 1", "Tag 2"],
+    title: "Football Analytics",
+    category: "Data Science & Visualization",
+    year: "2019",
+    description: "A personal project developing football models and visualizations. Combining machine learning with creative data storytelling to reveal insights from match data.",
+    tags: ["Python", "R", "Machine Learning", "Data Viz"],
   },
   {
     id: 4,
-    title: "Project Four",
-    category: "Category",
-    year: "2023",
-    description: "Project description placeholder. Add your project details here.",
-    tags: ["Tag 1", "Tag 2"],
+    title: "Kestra Governance Assets",
+    category: "Product Design & Engineering",
+    year: "2024",
+    description: "A comprehensive data governance feature for tracking lineage and metadata of workflow resources. Complete product leadership from concept to client delivery.",
+    tags: ["Product Design", "DSL Design", "Enterprise"],
+  },
+  {
+    id: 5,
+    title: "Kestra Playground",
+    category: "Product Design & UX",
+    year: "2024",
+    description: "An iterative workflow development feature enabling developers to build and test workflows one task at a time. Led product conceptualization, UX direction, and coordinated with engineering team.",
+    tags: ["Product Design", "UX", "Developer Tools", "Workflows"],
+  },
+  {
+    id: 6,
+    title: "Kestra Notion Plugin",
+    category: "Plugin Development",
+    year: "2024",
+    description: "A complete Notion integration for Kestra's workflow orchestration platform. Built end-to-end from Java implementation to QA, enabling seamless database operations and content management within workflows.",
+    tags: ["Java", "Plugin Development", "API Integration", "Kestra"],
+  },
+  {
+    id: 7,
+    title: "SQL is not designed for analytics",
+    category: "Conference & Thought Leadership",
+    year: "2024",
+    description: "A conference talk challenging conventional wisdom about SQL for analytics, presented to 300+ data professionals. Exploring the paradigm shift from Text-to-SQL toward the emerging Text-to-Semantic Layer era.",
+    tags: ["Public Speaking", "Data Analytics", "Thought Leadership", "Semantic Layer"],
   },
 ];
 
 const categories = ["All", "Category 1", "Category 2", "Category 3"];
 
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function ProjectsPage() {
-  const featuredProject = projects.find((p) => p.featured);
-  const otherProjects = projects.filter((p) => !p.featured);
+  const [shuffledProjects, setShuffledProjects] = useState(projects);
+
+  useEffect(() => {
+    setShuffledProjects(shuffleArray(projects));
+  }, []);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
@@ -52,7 +91,7 @@ export default function ProjectsPage() {
             Selected <br /> <span className="not-italic">Works</span>
           </h1>
           <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light">
-            An exploration of data systems, infrastructure challenges, and engineering solutions. 
+            An exploration of data systems, infrastructure challenges, and engineering solutions.
             Building robust pipelines one commit at a time.
           </p>
         </div>
@@ -76,69 +115,76 @@ export default function ProjectsPage() {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-24">
-        {/* Featured Project */}
-        {featuredProject && (
-          <Link
-            href="/projects/the-new-printer"
-            className="group cursor-pointer project-card md:col-span-2 grid md:grid-cols-2 gap-8 items-center"
-          >
-            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-auto md:h-[500px] w-full border border-border-light dark:border-border-dark">
-              <Image
-                src="/new-printer-thumbnail.jpg"
-                alt="The New Printer project thumbnail"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute top-4 left-4 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest border border-white/20">
-                Featured
-              </div>
-            </div>
-            <div className="flex flex-col justify-center space-y-4 pr-0 md:pr-12">
-              <div className="flex items-center gap-2 text-primary font-mono text-xs uppercase tracking-wider">
-                <span>{featuredProject.year}</span>
-                <span className="w-8 h-[1px] bg-primary"></span>
-                <span>{featuredProject.category}</span>
-              </div>
-              <h3 className="font-display text-4xl md:text-5xl group-hover:underline decoration-1 underline-offset-4 decoration-text-muted-light">
-                {featuredProject.title}
-              </h3>
-              <p className="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-                {featuredProject.description}
-              </p>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {featuredProject.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 rounded-sm bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark text-[10px] uppercase tracking-wider text-text-muted-light dark:text-text-muted-dark"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="pt-4">
-                <span className="inline-flex items-center gap-2 text-sm font-medium border-b border-text-main-light dark:border-text-main-dark pb-0.5 hover:text-primary hover:border-primary transition-colors">
-                  Read Case Study
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-          </Link>
-        )}
-
-        {/* Other Projects */}
-        {otherProjects.map((project) => (
+        {/* All Projects */}
+        {shuffledProjects.map((project) => (
           <Link
             key={project.id}
-            href={project.id === 2 ? "/projects/gotta-gridem-all" : "#"}
+            href={
+              project.id === 1
+                ? "/projects/the-new-printer"
+                : project.id === 2
+                ? "/projects/gotta-gridem-all"
+                : project.id === 3
+                ? "/projects/football-analytics"
+                : project.id === 4
+                ? "/projects/kestra-governance-assets"
+                : project.id === 5
+                ? "/projects/kestra-playground"
+                : project.id === 6
+                ? "/projects/kestra-notion-plugin"
+                : project.id === 7
+                ? "/projects/semantic-layer-conference"
+                : "#"
+            }
             className="group cursor-pointer project-card flex flex-col gap-6"
           >
             <div className="relative overflow-hidden rounded-2xl aspect-[4/3] border border-border-light dark:border-border-dark">
-              {project.id === 2 ? (
+              {project.id === 1 ? (
+                <Image
+                  src="/new-printer-thumbnail.jpg"
+                  alt="The New Printer project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 2 ? (
                 <Image
                   src="/gotta-gridem-all-thumbnail.png"
                   alt="Gotta Grid'em All project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 3 ? (
+                <Image
+                  src="/football-analytics-thumbnail.jpg"
+                  alt="Football Analytics project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 4 ? (
+                <Image
+                  src="/kestra-governance-assets-thumbnail.jpg"
+                  alt="Kestra Governance Assets project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 5 ? (
+                <Image
+                  src="/kestra-playground-thumbnail.jpg"
+                  alt="Kestra Playground project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 6 ? (
+                <Image
+                  src="/kestra-notion-plugin-thumbnail.png"
+                  alt="Kestra Notion Plugin project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 7 ? (
+                <Image
+                  src="/semantic-layer-conference-thumbnail.png"
+                  alt="SQL is not designed for analytics conference thumbnail"
                   fill
                   className="object-cover"
                 />
