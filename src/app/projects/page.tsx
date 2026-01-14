@@ -61,6 +61,30 @@ const projects = [
     description: "A conference talk challenging conventional wisdom about SQL for analytics, presented to 300+ data professionals. Exploring the paradigm shift from Text-to-SQL toward the emerging Text-to-Semantic Layer era.",
     tags: ["Public Speaking", "Data Analytics", "Thought Leadership", "Semantic Layer"],
   },
+  {
+    id: 8,
+    title: "Deezer Competitor Offer Scraping",
+    category: "Web Scraping & Competitive Intelligence",
+    year: "2018-2019",
+    description: "A competitive intelligence system for monitoring pricing changes across music streaming competitors. Real-time Slack alerts keep pricing teams informed when competitors adjust their offers in specific markets.",
+    tags: ["Python", "Web Scraping", "Competitive Intelligence", "Slack"],
+  },
+  {
+    id: 9,
+    title: "Maison du Monde CDP",
+    category: "Data Engineering & Marketing Technology",
+    year: "2019-2020",
+    description: "A Customer Data Platform built on BigQuery and Airflow, enabling ML-powered audience segmentation for acquisition and CRM teams. Transforming customer data into actionable marketing segments.",
+    tags: ["BigQuery", "Airflow", "GCP", "Machine Learning", "CDP"],
+  },
+  {
+    id: 10,
+    title: "Olympique de Marseille Recruitment System",
+    category: "Sports Analytics & Machine Learning",
+    year: "2020-2021",
+    description: "An ML-powered player recruitment system built on StatsBomb data and VAEP modeling. Ingested global match events and created custom transfer lists for OM's sporting director and recruitment team.",
+    tags: ["Python", "Machine Learning", "VAEP", "Sports Analytics", "StatsBomb"],
+  },
 ];
 
 const categories = ["All", "Category 1", "Category 2", "Category 3"];
@@ -134,6 +158,12 @@ export default function ProjectsPage() {
                 ? "/projects/kestra-notion-plugin"
                 : project.id === 7
                 ? "/projects/semantic-layer-conference"
+                : project.id === 8
+                ? "/projects/deezer-competitor-scraping"
+                : project.id === 9
+                ? "/projects/maison-du-monde-cdp"
+                : project.id === 10
+                ? "/projects/om-recruitment-system"
                 : "#"
             }
             className="group cursor-pointer project-card flex flex-col gap-6"
@@ -185,6 +215,27 @@ export default function ProjectsPage() {
                 <Image
                   src="/semantic-layer-conference-thumbnail.png"
                   alt="SQL is not designed for analytics conference thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 8 ? (
+                <Image
+                  src="/deezer-competitor-scraping-thumbnail.jpg"
+                  alt="Deezer Competitor Offer Scraping project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 9 ? (
+                <Image
+                  src="/maison-du-monde-cdp-thumbnail.jpg"
+                  alt="Maison du Monde CDP project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 10 ? (
+                <Image
+                  src="/om-recruitment-thumbnail.jpg"
+                  alt="Olympique de Marseille Recruitment System project thumbnail"
                   fill
                   className="object-cover"
                 />

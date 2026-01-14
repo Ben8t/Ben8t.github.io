@@ -47,6 +47,24 @@ const projects = [
     category: "Conference & Thought Leadership",
     year: "2024",
   },
+  {
+    id: 8,
+    title: "Deezer Competitor Offer Scraping",
+    category: "Web Scraping & Competitive Intelligence",
+    year: "2018-2019",
+  },
+  {
+    id: 9,
+    title: "Maison du Monde CDP",
+    category: "Data Engineering & Marketing Technology",
+    year: "2019-2020",
+  },
+  {
+    id: 10,
+    title: "Olympique de Marseille Recruitment System",
+    category: "Sports Analytics & Machine Learning",
+    year: "2020-2021",
+  },
 ];
 
 // Fisher-Yates shuffle algorithm
@@ -156,6 +174,12 @@ export default function Home() {
                     ? "/projects/kestra-notion-plugin"
                     : project.id === 7
                     ? "/projects/semantic-layer-conference"
+                    : project.id === 8
+                    ? "/projects/deezer-competitor-scraping"
+                    : project.id === 9
+                    ? "/projects/maison-du-monde-cdp"
+                    : project.id === 10
+                    ? "/projects/om-recruitment-system"
                     : "/projects"
                 }
                 className="group cursor-pointer project-card flex flex-col gap-4"
@@ -207,6 +231,27 @@ export default function Home() {
                     <Image
                       src="/semantic-layer-conference-thumbnail.png"
                       alt="SQL is not designed for analytics conference thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 8 ? (
+                    <Image
+                      src="/deezer-competitor-scraping-thumbnail.jpg"
+                      alt="Deezer Competitor Offer Scraping project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 9 ? (
+                    <Image
+                      src="/maison-du-monde-cdp-thumbnail.jpg"
+                      alt="Maison du Monde CDP project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 10 ? (
+                    <Image
+                      src="/om-recruitment-thumbnail.jpg"
+                      alt="Olympique de Marseille Recruitment System project thumbnail"
                       fill
                       className="object-cover"
                     />
