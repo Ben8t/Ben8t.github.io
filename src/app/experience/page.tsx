@@ -8,8 +8,8 @@ const experiences = [
     current: true,
     description: "Leading product development and go-to-market for an open-core automation platform.",
     achievements: [
-      "Led 15+ engineers developing open-core automation platform, growing ARR from $0 to $1M+ through Pre-Seed to Series A",
-      "Conducted technical demos and converted SMB/enterprise prospects with $40k average ACV through product-led sales",
+      "Led 15+ engineers developing open-core automation platform, growing ARR from $0 to 7-figures through Pre-Seed to Series A",
+      "Conducted technical demos and converted SMB/enterprise prospects with 5-figure average ACV through product-led sales",
       "Grew developer community from 1k to 18k GitHub stars via conference speaking and technical content",
       "Founded analytics motion managing stakeholders and analytics engineers to drive data-driven product decisions",
     ],
@@ -67,7 +67,7 @@ export default function ExperiencePage() {
       <section className="mb-16 md:mb-24">
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl italic leading-tight mb-6">
           Professional <br />
-          <span className="not-italic text-primary">Experience</span>
+          <span className="not-italic silver-gradient-text">Experience</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-lg leading-relaxed">
           A timeline of my journey building data systems, 

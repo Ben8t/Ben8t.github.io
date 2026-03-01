@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #3B82F6;
+  --color-primary: #8B96A8;
   
   --color-background-light: #F5F5F0;
   --color-background-dark: #1A1A1A;
@@ -56,7 +56,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
+  background-color: rgba(139, 150, 168, 0.3);
 }
 
 ::-webkit-scrollbar {
@@ -74,6 +74,24 @@ body {
 
 .dark ::-webkit-scrollbar-thumb {
   background-color: rgba(75, 85, 99, 0.5);
+}
+
+/* Silver gradient utilities */
+.silver-gradient-text {
+  background: linear-gradient(135deg, #6B7A8D 0%, #C4CDD6 45%, #8B96A8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-silver {
+  background: linear-gradient(135deg, #8B96A8 0%, #C4CDD6 50%, #8B96A8 100%);
+  color: #1A1A1A;
+}
+
+.btn-silver:hover {
+  background: linear-gradient(135deg, #7A8799 0%, #B8C3CC 50%, #7A8799 100%);
+  color: #1A1A1A;
 }
 
 /* Project card hover effects */

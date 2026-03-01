@@ -75,7 +75,7 @@ export function Header() {
             <span className="font-display italic text-sm text-text-muted-light dark:text-text-muted-dark group-hover:text-text-main-light dark:group-hover:text-text-main-dark transition-colors">
               From an Engineer&apos;s Sight
             </span>
-            <span className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+            <span className="btn-silver px-4 py-2 rounded-lg text-sm font-medium transition-all">
               Subscribe
             </span>
           </a>

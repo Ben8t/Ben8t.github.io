@@ -65,6 +65,12 @@ const projects = [
     category: "Sports Analytics & Machine Learning",
     year: "2020-2021",
   },
+  {
+    id: 11,
+    title: "kestractl",
+    category: "CLI Tool & Go Engineering",
+    year: "2025",
+  },
 ];
 
 // Fisher-Yates shuffle algorithm
@@ -92,7 +98,7 @@ export default function Home() {
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6">
             <span className="italic">Beyond</span>
             <br />
-            <span className="text-primary">Engineering.</span>
+            <span className="silver-gradient-text">Engineering.</span>
           </h1>
           <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-8">
             I'm a product engineer obsessed with craft—bridging data pipelines, thoughtful UX,
@@ -180,6 +186,8 @@ export default function Home() {
                     ? "/projects/maison-du-monde-cdp"
                     : project.id === 10
                     ? "/projects/om-recruitment-system"
+                    : project.id === 11
+                    ? "/projects/kestractl"
                     : "/projects"
                 }
                 className="group cursor-pointer project-card flex flex-col gap-4"
@@ -254,6 +262,13 @@ export default function Home() {
                       alt="Olympique de Marseille Recruitment System project thumbnail"
                       fill
                       className="object-cover"
+                    />
+                  ) : project.id === 11 ? (
+                    <Image
+                      src="/kestractl-thumbnail.png"
+                      alt="kestractl CLI project thumbnail"
+                      fill
+                      className="object-cover object-top"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">

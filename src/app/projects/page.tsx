@@ -85,6 +85,14 @@ const projects = [
     description: "An ML-powered player recruitment system built on StatsBomb data and VAEP modeling. Ingested global match events and created custom transfer lists for OM's sporting director and recruitment team.",
     tags: ["Python", "Machine Learning", "VAEP", "Sports Analytics", "StatsBomb"],
   },
+  {
+    id: 11,
+    title: "kestractl",
+    category: "CLI Tool & Go Engineering",
+    year: "2025",
+    description: "A production-grade CLI for managing Kestra workflows — designed from command architecture to release pipeline, and built end-to-end through agentic coding in Go.",
+    tags: ["Go", "CLI", "Cobra", "Kestra", "Agentic Coding"],
+  },
 ];
 
 const categories = ["All", "Category 1", "Category 2", "Category 3"];
@@ -164,6 +172,8 @@ export default function ProjectsPage() {
                 ? "/projects/maison-du-monde-cdp"
                 : project.id === 10
                 ? "/projects/om-recruitment-system"
+                : project.id === 11
+                ? "/projects/kestractl"
                 : "#"
             }
             className="group cursor-pointer project-card flex flex-col gap-6"
@@ -238,6 +248,13 @@ export default function ProjectsPage() {
                   alt="Olympique de Marseille Recruitment System project thumbnail"
                   fill
                   className="object-cover"
+                />
+              ) : project.id === 11 ? (
+                <Image
+                  src="/kestractl-thumbnail.png"
+                  alt="kestractl CLI project thumbnail"
+                  fill
+                  className="object-cover object-top"
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
