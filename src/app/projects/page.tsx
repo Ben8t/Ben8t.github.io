@@ -93,6 +93,14 @@ const projects = [
     description: "A production-grade CLI for managing Kestra workflows — designed from command architecture to release pipeline, and built end-to-end through agentic coding in Go.",
     tags: ["Go", "CLI", "Cobra", "Kestra", "Agentic Coding"],
   },
+  {
+    id: 12,
+    title: "Kestra Agent Skills",
+    category: "AI & Developer Tools",
+    year: "2026",
+    description: "The official Kestra agent skills for Claude Code — enabling AI agents to migrate tools to Kestra, deploy flows, automate QA, and drive product workflows directly from natural language.",
+    tags: ["AI", "Claude Code", "Kestra", "Agentic Coding", "Developer Tools"],
+  },
 ];
 
 const categories = ["All", "Category 1", "Category 2", "Category 3"];
@@ -174,6 +182,8 @@ export default function ProjectsPage() {
                 ? "/projects/om-recruitment-system"
                 : project.id === 11
                 ? "/projects/kestractl"
+                : project.id === 12
+                ? "/projects/kestra-agent-skills"
                 : "#"
             }
             className="group cursor-pointer project-card flex flex-col gap-6"
@@ -255,6 +265,13 @@ export default function ProjectsPage() {
                   alt="kestractl CLI project thumbnail"
                   fill
                   className="object-cover object-top"
+                />
+              ) : project.id === 12 ? (
+                <Image
+                  src="/images/experiences/kestra.jpg"
+                  alt="Kestra Agent Skills project thumbnail"
+                  fill
+                  className="object-cover"
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
