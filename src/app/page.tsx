@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-
 const projects = [
   {
     id: 1,
@@ -79,22 +77,13 @@ const projects = [
   },
 ];
 
-// Fisher-Yates shuffle algorithm
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
+const sortedProjects = [...projects].sort((a, b) => {
+  const yearA = parseInt(a.year.split("-").pop()!);
+  const yearB = parseInt(b.year.split("-").pop()!);
+  return yearB - yearA;
+});
 
 export default function Home() {
-  const [shuffledProjects, setShuffledProjects] = useState(projects);
-
-  useEffect(() => {
-    setShuffledProjects(shuffleArray(projects));
-  }, []);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
@@ -168,7 +157,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {shuffledProjects.map((project) => (
+            {sortedProjects.map((project) => (
               <Link
                 key={project.id}
                 href={
