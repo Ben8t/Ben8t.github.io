@@ -67,7 +67,7 @@ export default function KestraAgentSkillsPage() {
       {/* Project Image */}
       <div className="relative overflow-hidden rounded-2xl aspect-video mb-16 md:mb-24 border border-border-light dark:border-border-dark">
         <Image
-          src="/images/experiences/kestra.jpg"
+          src="/kestra-agent-skills-thumbnail.png"
           alt="Kestra Agent Skills"
           fill
           className="object-cover"
