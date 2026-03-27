@@ -3,6 +3,7 @@
 
 @theme {
   --color-primary: #8B96A8;
+  --color-accent: #C9A96E;
   
   --color-background-light: #F5F5F0;
   --color-background-dark: #1A1A1A;
@@ -92,6 +93,34 @@ body {
 .btn-silver:hover {
   background: linear-gradient(135deg, #7A8799 0%, #B8C3CC 50%, #7A8799 100%);
   color: #1A1A1A;
+}
+
+/* Gold / champagne gradient utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #8B6232 0%, #C9A96E 35%, #F0D898 55%, #C9A96E 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #EDD48A 0%, #C9A96E 40%, #9A7040 70%, #EDD48A 100%);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #E2C97A 0%, #C9A96E 35%, #9A7040 65%, #C9A96E 85%, #E2C97A 100%);
+  color: #2A1F0E;
+  background-size: 200% 200%;
+  transition: background-position 0.4s ease, opacity 0.2s ease;
+}
+
+.btn-gold:hover {
+  background-position: right center;
+  opacity: 0.92;
+}
+
+.selected-gold-card {
+  background: linear-gradient(135deg, rgba(240, 216, 152, 0.12) 0%, rgba(201, 169, 110, 0.08) 60%, rgba(154, 112, 64, 0.10) 100%);
 }
 
 /* Project card hover effects */

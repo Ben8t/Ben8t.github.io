@@ -86,36 +86,45 @@ const sortedProjects = [...projects].sort((a, b) => {
 export default function Home() {
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
+    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12">
       {/* Hero Section */}
-      <section className="mb-20 md:mb-32">
+      <section className="mb-8 md:mb-10">
         <div className="max-w-4xl">
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6">
             <span className="italic">Beyond</span>
             <br />
             <span className="silver-gradient-text">Engineering.</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-8">
+          <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-4">
             I'm a product engineer obsessed with craft—bridging data pipelines, thoughtful UX,
             and ideas drawn from art, science, and everyday curiosity. Building things that matter.
           </p>
-          <div className="mt-10 flex gap-4">
-            <Link
-              href="/projects"
-              className="group flex items-center gap-2 text-lg font-medium border-b border-text-main-light dark:border-text-main-dark pb-0.5 hover:text-primary hover:border-primary transition-colors"
-            >
-              View Projects
-              <svg
-                className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
         </div>
+      </section>
+
+      {/* AI Sessions Banner */}
+      <section className="mb-16 md:mb-24">
+        <Link href="/ai-sessions" className="group block">
+          <div className="relative overflow-hidden rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-8 md:p-10 hover:border-[#C9A96E] transition-colors duration-300">
+            <div className="absolute left-0 top-0 bottom-0 w-1 gold-gradient rounded-l-xl" />
+            <div className="pl-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest gold-gradient-text">
+                  Free Session
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl mt-2">
+                  AI Sessions — <em>First 30 minutes free</em>
+                </h2>
+                <p className="mt-3 text-text-muted-light dark:text-text-muted-dark max-w-xl leading-relaxed">
+                  Whether you&apos;re new to AI or already building with agents, let&apos;s talk.
+                </p>
+              </div>
+              <span className="shrink-0 px-6 py-3 btn-gold rounded-lg font-medium whitespace-nowrap">
+                Book a session →
+              </span>
+            </div>
+          </div>
+        </Link>
       </section>
 
       {/* Now Section - Sidebar info */}
