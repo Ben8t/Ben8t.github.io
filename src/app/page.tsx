@@ -143,11 +143,11 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
               <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Working on</span>
-              <span className="text-base">Kestra 1.3 release and product design</span>
+              <span className="text-base">Kestra next big steps + AI vision</span>
             </div>
             <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
               <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Reading</span>
-              <span className="text-base italic">Aristotle&apos;s Rhetoric</span>
+              <span className="text-base italic">Things That Make Us Smart — D. Norman</span>
             </div>
             <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
               <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Building</span>
