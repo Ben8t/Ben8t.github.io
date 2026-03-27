@@ -278,7 +278,7 @@ export default function Home() {
                     />
                   ) : project.id === 12 ? (
                     <Image
-                      src="/images/experiences/kestra.jpg"
+                      src="/kestra-agent-skills-thumbnail.png"
                       alt="Kestra Agent Skills project thumbnail"
                       fill
                       className="object-cover"
