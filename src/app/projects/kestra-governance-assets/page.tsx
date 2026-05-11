@@ -256,7 +256,7 @@ pluginDefaults:
             </p>
 
             <div className="space-y-4 mt-6">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Architecture Planning
                 </h3>
@@ -266,7 +266,7 @@ pluginDefaults:
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   API Design
                 </h3>
@@ -276,7 +276,7 @@ pluginDefaults:
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Integration Points
                 </h3>
@@ -414,7 +414,7 @@ pluginDefaults:
             </p>
 
             <div className="space-y-4 mt-6">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Compliance & Auditing
                 </h3>
@@ -424,7 +424,7 @@ pluginDefaults:
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Operational Excellence
                 </h3>
@@ -434,7 +434,7 @@ pluginDefaults:
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Data Discovery
                 </h3>

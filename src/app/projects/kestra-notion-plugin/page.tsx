@@ -187,7 +187,7 @@ export default function KestraNotionPluginPage() {
             </p>
 
             <div className="space-y-4 mt-6">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   io.kestra.plugin.notion.page.Create
                 </h3>
@@ -197,7 +197,7 @@ export default function KestraNotionPluginPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   io.kestra.plugin.notion.page.Read
                 </h3>
@@ -207,7 +207,7 @@ export default function KestraNotionPluginPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   io.kestra.plugin.notion.page.Archive
                 </h3>
@@ -317,7 +317,7 @@ export default function KestraNotionPluginPage() {
             </p>
 
             <div className="space-y-4 mt-6">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Block Structure Complexity
                 </h3>
@@ -328,7 +328,7 @@ export default function KestraNotionPluginPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Authentication Flow
                 </h3>
@@ -339,7 +339,7 @@ export default function KestraNotionPluginPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Rate Limit Handling
                 </h3>

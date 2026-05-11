@@ -1,7 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 const projects = [
   {
     id: 1,
@@ -90,24 +89,26 @@ export default function Home() {
       {/* Hero Section */}
       <section className="mb-8 md:mb-10">
         <div className="max-w-4xl">
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6">
+          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6 anim-fade-up">
             <span className="italic">Beyond</span>
             <br />
             <span className="silver-gradient-text">Engineering.</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-4">
-            I'm a product engineer obsessed with craft—bridging data pipelines, thoughtful UX,
+          <p
+            className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-4 anim-fade-up"
+            style={{ animationDelay: "200ms" }}
+          >
+            I&apos;m a product engineer obsessed with craft, bridging data pipelines, thoughtful UX,
             and ideas drawn from art, science, and everyday curiosity. Building things that matter.
           </p>
         </div>
       </section>
 
       {/* AI Sessions Banner */}
-      <section className="mb-16 md:mb-24">
+      <section className="mb-16 md:mb-24 anim-fade-up" style={{ animationDelay: "400ms" }}>
         <Link href="/ai-sessions" className="group block">
-          <div className="relative overflow-hidden rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-8 md:p-10 hover:border-[#C9A96E] transition-colors duration-300">
-            <div className="absolute left-0 top-0 bottom-0 w-1 gold-gradient rounded-l-xl" />
-            <div className="pl-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="relative overflow-hidden rounded-xl border border-border-light dark:border-border-dark selected-gold-card p-8 md:p-10 hover:border-accent transition-colors duration-300">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest gold-gradient-text">
                   Free Session
@@ -129,7 +130,8 @@ export default function Home() {
 
       {/* Now Section - Sidebar info */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 border-t border-border-light dark:border-border-dark">
-        <aside className="lg:col-span-4 lg:border-r lg:border-border-light dark:lg:border-border-dark lg:pr-12">
+        <Reveal className="lg:col-span-4">
+        <aside className="lg:border-r lg:border-border-light dark:lg:border-border-dark lg:pr-12">
           <div className="flex items-center gap-2 pb-4">
             <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -155,6 +157,7 @@ export default function Home() {
             </div>
           </div>
         </aside>
+        </Reveal>
 
         {/* Selected Projects */}
         <div className="lg:col-span-8">
@@ -166,9 +169,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {sortedProjects.map((project) => (
+            {sortedProjects.map((project, index) => (
+              <Reveal key={project.id} delay={index * 60}>
               <Link
-                key={project.id}
                 href={
                   project.id === 1
                     ? "/projects/the-new-printer"
@@ -284,7 +287,7 @@ export default function Home() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                    <div className="w-full h-full bg-surface-light dark:bg-surface-dark flex items-center justify-center">
                       <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
                     </div>
                   )}
@@ -301,6 +304,7 @@ export default function Home() {
                   </span>
                 </div>
               </Link>
+              </Reveal>
             ))}
           </div>
         </div>

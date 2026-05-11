@@ -146,7 +146,7 @@ export default function FootballAnalyticsPage() {
             </p>
 
             <div className="space-y-6 mt-8">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Pass Networks
                 </h3>
@@ -156,7 +156,7 @@ export default function FootballAnalyticsPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Pass Sonars
                 </h3>
@@ -166,7 +166,7 @@ export default function FootballAnalyticsPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   xG Maps
                 </h3>
@@ -176,7 +176,7 @@ export default function FootballAnalyticsPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Assist-Shot Cluster Maps
                 </h3>
@@ -186,7 +186,7 @@ export default function FootballAnalyticsPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Performance Rolling Means
                 </h3>

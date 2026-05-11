@@ -98,7 +98,7 @@ export default function KestraPlaygroundPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">My Role</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Product Conceptualization
               </h3>
@@ -108,7 +108,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 UX Direction & Design
               </h3>
@@ -118,7 +118,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Engineering Coordination
               </h3>
@@ -128,7 +128,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Initial Design Proposals
               </h3>
@@ -224,7 +224,7 @@ export default function KestraPlaygroundPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">Key Features</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Task-by-Task Execution
               </h3>
@@ -234,7 +234,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Execution History
               </h3>
@@ -244,7 +244,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Batch Operations
               </h3>
@@ -254,7 +254,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 DAG Awareness
               </h3>
@@ -264,7 +264,7 @@ export default function KestraPlaygroundPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Isolated Execution Context
               </h3>

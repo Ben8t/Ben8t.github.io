@@ -84,7 +84,7 @@ export default function ExperiencePage() {
               className={`absolute -left-[9px] md:-left-[9px] top-2 h-4 w-4 rounded-full border-2 border-background-light dark:border-background-dark shadow-sm transition-transform duration-300 group-hover:scale-125 ${
                 exp.current
                   ? "bg-primary"
-                  : "bg-gray-400 dark:bg-gray-600 group-hover:bg-primary"
+                  : "bg-border-light dark:bg-border-dark group-hover:bg-primary"
               }`}
             ></div>
 
@@ -109,17 +109,13 @@ export default function ExperiencePage() {
               {/* Achievements */}
               <ul className="space-y-3">
                 {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="flex items-start">
-                    <svg
-                      className={`w-4 h-4 mr-3 mt-1 flex-shrink-0 ${
-                        exp.current ? "text-primary" : "text-gray-400 dark:text-gray-500"
+                  <li key={i} className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      className={`mt-3 h-px w-3 flex-shrink-0 ${
+                        exp.current ? "bg-primary" : "bg-text-muted-light dark:bg-text-muted-dark"
                       }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    />
                     <span>{achievement}</span>
                   </li>
                 ))}

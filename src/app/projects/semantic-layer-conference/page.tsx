@@ -168,7 +168,7 @@ export default function SemanticLayerConferencePage() {
             </p>
 
             <div className="space-y-6 mt-6">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Arnaud de Turckheim (CastorDoc)
                 </h3>
@@ -179,7 +179,7 @@ export default function SemanticLayerConferencePage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   David Jayatillake (Cube)
                 </h3>
@@ -190,7 +190,7 @@ export default function SemanticLayerConferencePage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Ethan Ding (TextQL)
                 </h3>

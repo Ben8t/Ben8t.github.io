@@ -230,7 +230,7 @@ export default function DeezerCompetitorScrapingPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">Technical Challenges</h2>
           <div className="space-y-6 text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Website Structure Changes
               </h3>
@@ -241,7 +241,7 @@ export default function DeezerCompetitorScrapingPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Dynamic Content Loading
               </h3>
@@ -251,7 +251,7 @@ export default function DeezerCompetitorScrapingPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Rate Limiting & Detection
               </h3>
@@ -261,7 +261,7 @@ export default function DeezerCompetitorScrapingPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Multi-Country Variations
               </h3>

@@ -215,7 +215,7 @@ export default function GottaGridemAllPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">Design Principles</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Encode Meaning, Not Just Measurement
               </h3>
@@ -225,7 +225,7 @@ export default function GottaGridemAllPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Reduce Cognitive Load
               </h3>
@@ -236,7 +236,7 @@ export default function GottaGridemAllPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Context Over Precision
               </h3>
@@ -247,7 +247,7 @@ export default function GottaGridemAllPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Subtlety is Strength
               </h3>

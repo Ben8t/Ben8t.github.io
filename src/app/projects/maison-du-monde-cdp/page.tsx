@@ -201,7 +201,7 @@ export default function MaisonDuMondeCDPPage() {
             </p>
 
             <div className="space-y-6 mt-6">
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Purchase Propensity Models
                 </h3>
@@ -211,7 +211,7 @@ export default function MaisonDuMondeCDPPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Churn Risk Segmentation
                 </h3>
@@ -221,7 +221,7 @@ export default function MaisonDuMondeCDPPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Product Affinity Clustering
                 </h3>
@@ -231,7 +231,7 @@ export default function MaisonDuMondeCDPPage() {
                 </p>
               </div>
 
-              <div className="border-l-2 border-primary pl-6">
+              <div>
                 <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                   Lifetime Value Prediction
                 </h3>

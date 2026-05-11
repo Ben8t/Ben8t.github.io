@@ -100,7 +100,7 @@ export default function KestraAgentSkillsPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">Battle-Tested Use Cases</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Tool Migration to Kestra
               </h3>
@@ -111,7 +111,7 @@ export default function KestraAgentSkillsPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Flow Deployment
               </h3>
@@ -121,7 +121,7 @@ export default function KestraAgentSkillsPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 QA Automation
               </h3>
@@ -132,7 +132,7 @@ export default function KestraAgentSkillsPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Product Automation
               </h3>

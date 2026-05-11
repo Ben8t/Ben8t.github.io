@@ -59,7 +59,7 @@ export default function AiSessionsForm({ t }: { t: AiSessionsTranslations }) {
   if (status === "success") {
     return (
       <div className="w-full max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-20">
-        <div className="mt-8 p-10 md:p-14 bg-surface-light dark:bg-surface-dark border border-[#C9A96E] rounded-2xl text-center flex flex-col items-center gap-4 selected-gold-card">
+        <div className="mt-8 p-10 md:p-14 bg-surface-light dark:bg-surface-dark border border-accent rounded-2xl text-center flex flex-col items-center gap-4 selected-gold-card">
           <span className="text-5xl">✓</span>
           <h2 className="font-display text-4xl md:text-5xl mt-2">
             {t.successHeading} <span className="italic">{t.successHeadingItalic}</span>
@@ -105,8 +105,8 @@ export default function AiSessionsForm({ t }: { t: AiSessionsTranslations }) {
                 className={[
                   "text-left rounded-xl p-5 transition-all duration-200 cursor-pointer",
                   isSelected
-                    ? "border-2 border-[#C9A96E] selected-gold-card"
-                    : "border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark hover:border-[#C9A96E]",
+                    ? "border-2 border-accent selected-gold-card"
+                    : "border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark hover:border-accent",
                 ].join(" ")}
               >
                 <div className="flex items-start gap-3">
@@ -114,7 +114,7 @@ export default function AiSessionsForm({ t }: { t: AiSessionsTranslations }) {
                     className={[
                       "text-xl mt-0.5 shrink-0 transition-colors",
                       isSelected
-                        ? "text-[#C9A96E]"
+                        ? "text-accent"
                         : "text-text-muted-light dark:text-text-muted-dark",
                     ].join(" ")}
                   >
@@ -125,7 +125,7 @@ export default function AiSessionsForm({ t }: { t: AiSessionsTranslations }) {
                       className={[
                         "text-xs font-bold uppercase tracking-widest mb-1 transition-colors",
                         isSelected
-                          ? "text-[#C9A96E]"
+                          ? "text-accent"
                           : "text-text-muted-light dark:text-text-muted-dark",
                       ].join(" ")}
                     >
@@ -153,7 +153,7 @@ export default function AiSessionsForm({ t }: { t: AiSessionsTranslations }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t.emailPlaceholder}
-              className="flex-1 px-4 py-3 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:border-[#C9A96E] text-base transition-colors"
+              className="flex-1 px-4 py-3 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:border-accent text-base transition-colors"
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
             />
             <button

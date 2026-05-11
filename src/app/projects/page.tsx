@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 const projects = [
@@ -101,8 +99,6 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Category 1", "Category 2", "Category 3"];
-
 const sortedProjects = [...projects].sort((a, b) => {
   const yearA = parseInt(a.year.split("-").pop()!);
   const yearB = parseInt(b.year.split("-").pop()!);
@@ -125,22 +121,6 @@ export default function ProjectsPage() {
           </p>
         </div>
       </section>
-
-      {/* Filter buttons */}
-      <div className="flex flex-wrap gap-3 mb-12">
-        {categories.map((category, index) => (
-          <button
-            key={category}
-            className={`px-4 py-2 rounded-full border text-sm font-medium transition-all ${
-              index === 0
-                ? "border-text-main-light dark:border-text-main-dark bg-text-main-light dark:bg-text-main-dark text-background-light dark:text-background-dark"
-                : "border-border-light dark:border-border-dark text-text-muted-light dark:text-text-muted-dark hover:text-text-main-light dark:hover:text-text-main-dark hover:border-text-main-light dark:hover:border-text-main-dark"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-24">
@@ -263,7 +243,7 @@ export default function ProjectsPage() {
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                <div className="w-full h-full bg-surface-light dark:bg-surface-dark flex items-center justify-center">
                   <span className="text-text-muted-light dark:text-text-muted-dark text-sm">Placeholder</span>
                 </div>
               )}

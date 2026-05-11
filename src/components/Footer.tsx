@@ -8,7 +8,7 @@ export function Footer() {
           <span className="font-display text-2xl">Benoit</span>
           <p className="text-sm text-text-muted-light dark:text-text-muted-dark max-w-xs">
             Product & Data Engineer<br />
-            Based in Paris, France 🇫🇷
+            Based in Paris, France
           </p>
         </div>
         

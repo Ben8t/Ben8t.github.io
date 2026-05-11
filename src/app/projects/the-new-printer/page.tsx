@@ -176,7 +176,7 @@ export default function TheNewPrinterPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">Key Features</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Multi-Template System
               </h3>
@@ -186,7 +186,7 @@ export default function TheNewPrinterPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Intelligent Image Handling
               </h3>
@@ -196,7 +196,7 @@ export default function TheNewPrinterPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Batch Processing
               </h3>
@@ -206,7 +206,7 @@ export default function TheNewPrinterPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Flexible Configuration
               </h3>

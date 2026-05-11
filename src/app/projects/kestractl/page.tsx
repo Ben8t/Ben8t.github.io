@@ -99,7 +99,7 @@ export default function KestractlPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">My Role</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Command Design
               </h3>
@@ -109,7 +109,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Architecture
               </h3>
@@ -119,7 +119,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Agentic Implementation
               </h3>
@@ -130,7 +130,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">
                 Release Pipeline
               </h3>
@@ -187,7 +187,7 @@ export default function KestractlPage() {
         <section>
           <h2 className="font-display text-3xl md:text-4xl mb-6">Command Surface</h2>
           <div className="space-y-6">
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">Flows</h3>
               <p className="text-text-muted-light dark:text-text-muted-dark">
                 List, retrieve, deploy, and validate workflow definitions. Deploy supports namespace override and
@@ -195,7 +195,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">Executions</h3>
               <p className="text-text-muted-light dark:text-text-muted-dark">
                 Trigger flow executions with inputs and optional wait-for-completion. Useful for scripted workflows
@@ -203,7 +203,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">Namespaces</h3>
               <p className="text-text-muted-light dark:text-text-muted-dark">
                 List and query namespaces with filtering — a fast way to inspect how workflows are organized across
@@ -211,7 +211,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">Namespace Files</h3>
               <p className="text-text-muted-light dark:text-text-muted-dark">
                 Upload, download, and delete files within namespaces — including recursive directory operations.
@@ -219,7 +219,7 @@ export default function KestractlPage() {
               </p>
             </div>
 
-            <div className="border-l-2 border-primary pl-6">
+            <div>
               <h3 className="font-semibold text-lg mb-2 text-text-main-light dark:text-text-main-dark">Config & Contexts</h3>
               <p className="text-text-muted-light dark:text-text-muted-dark">
                 Add, list, switch, and remove named contexts. Each context holds a Kestra API endpoint and credentials,
