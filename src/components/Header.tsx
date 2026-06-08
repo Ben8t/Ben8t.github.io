@@ -2,35 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
 
 export function Header() {
   const pathname = usePathname();
-  const [isDark, setIsDark] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    // Check for saved theme preference or system preference
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDark(true);
-    }
-  };
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -39,22 +13,23 @@ export function Header() {
   ];
 
   return (
-    <header className="w-full px-6 py-8 md:px-12">
-      <div className="max-w-7xl mx-auto flex justify-between items-start">
-        {/* Left: Name and social links */}
-        <div className="flex flex-col gap-1">
-          <Link href="/" className="font-display text-2xl md:text-3xl font-normal tracking-wide hover:text-primary transition-colors">
-            Benoit
+    <header className="relative z-50 w-full">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 md:px-12">
+        {/* Left: brand + nav */}
+        <div className="flex items-center gap-5 md:gap-9">
+          <Link
+            href="/"
+            className="font-display text-2xl tracking-wide text-text-main-dark transition-opacity hover:opacity-80"
+          >
+            Benoit<span className="text-accent">.</span>
           </Link>
-          <nav className="flex gap-4 text-xs tracking-widest uppercase text-text-muted-light dark:text-text-muted-dark mt-1 font-medium">
+          <nav className="flex gap-4 md:gap-6 text-[10px] md:text-[11px] font-medium uppercase tracking-[0.18em] text-text-muted-dark">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`hover:text-primary transition-colors ${
-                  pathname === link.href
-                    ? "text-primary border-b border-primary pb-0.5"
-                    : ""
+                className={`transition-colors hover:text-text-main-dark ${
+                  pathname === link.href ? "text-text-main-dark" : ""
                 }`}
               >
                 {link.label}
@@ -63,84 +38,21 @@ export function Header() {
           </nav>
         </div>
 
-        {/* Right: Newsletter link and theme toggle */}
-        <div className="flex items-center gap-4">
-          {/* Newsletter link */}
-          <a
-            href="https://fromanengineersight.substack.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-3 group"
-          >
-            <span className="font-display italic text-sm text-text-muted-light dark:text-text-muted-dark group-hover:text-text-main-light dark:group-hover:text-text-main-dark transition-colors">
-              From an Engineer&apos;s Sight
-            </span>
-            <span className="btn-silver px-4 py-2 rounded-lg text-sm font-medium transition-all">
-              Subscribe
-            </span>
-          </a>
-          
-          {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full border border-border-light dark:border-border-dark hover:bg-surface-light dark:hover:bg-surface-dark transition-colors"
-            aria-label="Toggle theme"
-          >
-            {isDark ? (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            )}
-          </button>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2"
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
+        {/* Right: newsletter */}
+        <a
+          href="https://fromanengineersight.substack.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3"
+        >
+          <span className="hidden font-display italic text-sm text-text-muted-dark transition-colors group-hover:text-text-main-dark md:inline">
+            From an Engineer&apos;s Sight
+          </span>
+          <span className="whitespace-nowrap rounded-full border border-border-dark px-4 py-1.5 text-xs tracking-wide text-text-main-dark transition-colors group-hover:border-accent group-hover:text-accent">
+            Subscribe
+          </span>
+        </a>
       </div>
-
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <nav className="md:hidden mt-4 pt-4 border-t border-border-light dark:border-border-dark">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-lg ${
-                  pathname === link.href ? "text-primary" : ""
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <a
-              href="https://fromanengineersight.substack.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg text-primary"
-            >
-              Newsletter →
-            </a>
-          </div>
-        </nav>
-      )}
     </header>
   );
 }

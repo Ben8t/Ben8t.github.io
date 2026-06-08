@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import { RefractionHero } from "@/components/RefractionHero";
 const projects = [
   {
     id: 1,
@@ -85,86 +86,49 @@ const sortedProjects = [...projects].sort((a, b) => {
 export default function Home() {
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12">
-      {/* Hero Section */}
-      <section className="mb-8 md:mb-10">
-        <div className="max-w-4xl">
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-6 anim-fade-up">
-            <span className="italic">Beyond</span>
-            <br />
-            <span className="silver-gradient-text">Engineering.</span>
-          </h1>
-          <p
-            className="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark max-w-2xl leading-relaxed font-light mt-4 anim-fade-up"
-            style={{ animationDelay: "200ms" }}
-          >
-            I&apos;m a product engineer obsessed with craft, bridging data pipelines, thoughtful UX,
-            and ideas drawn from art, science, and everyday curiosity. Building things that matter.
-          </p>
-        </div>
-      </section>
+    <>
+      {/* Hero — full-bleed 3D refraction glass */}
+      <RefractionHero />
 
-      {/* AI Sessions Banner */}
-      <section className="mb-16 md:mb-24 anim-fade-up" style={{ animationDelay: "400ms" }}>
-        <Link href="/ai-sessions" className="group block">
-          <div className="relative overflow-hidden rounded-xl border border-border-light dark:border-border-dark selected-gold-card p-8 md:p-10 hover:border-accent transition-colors duration-300">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest gold-gradient-text">
-                  Free Session
-                </span>
-                <h2 className="font-display text-3xl md:text-4xl mt-2">
-                  AI Sessions — <em>First 30 minutes free</em>
-                </h2>
-                <p className="mt-3 text-text-muted-light dark:text-text-muted-dark max-w-xl leading-relaxed">
-                  Whether you&apos;re new to AI or already building with agents, let&apos;s talk.
-                </p>
-              </div>
-              <span className="shrink-0 px-6 py-3 btn-gold rounded-lg font-medium whitespace-nowrap">
-                Book a session →
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-12 pb-24">
+        {/* Now */}
+        <section className="pt-20 md:pt-28">
+          <div className="mb-12 flex items-baseline gap-5 md:mb-16">
+            <h2 className="font-display text-4xl">
+              <em className="italic text-accent">Now</em>
+            </h2>
+            <span className="text-[11px] uppercase tracking-[0.28em] text-text-muted-dark">
+              — June 2026
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-x-10 gap-y-10 md:grid-cols-4 md:gap-x-14">
+            <Reveal className="flex flex-col gap-2">
+              <span className="text-[10px] uppercase tracking-[0.32em] text-text-muted-dark">Location</span>
+              <span className="text-[15px] leading-relaxed">Paris, France</span>
+            </Reveal>
+            <Reveal delay={80} className="flex flex-col gap-2">
+              <span className="text-[10px] uppercase tracking-[0.32em] text-text-muted-dark">Working on</span>
+              <span className="text-[15px] leading-relaxed">Kestra next big steps + AI vision</span>
+            </Reveal>
+            <Reveal delay={160} className="flex flex-col gap-2">
+              <span className="text-[10px] uppercase tracking-[0.32em] text-text-muted-dark">Reading</span>
+              <span className="text-[15px] leading-relaxed">
+                <em className="font-display not-italic italic">Things That Make Us Smart</em> — D. Norman
               </span>
-            </div>
+            </Reveal>
+            <Reveal delay={240} className="flex flex-col gap-2">
+              <span className="text-[10px] uppercase tracking-[0.32em] text-text-muted-dark">Building</span>
+              <span className="text-[15px] leading-relaxed">The New Printer</span>
+            </Reveal>
           </div>
-        </Link>
-      </section>
-
-      {/* Now Section - Sidebar info */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 border-t border-border-light dark:border-border-dark">
-        <Reveal className="lg:col-span-4">
-        <aside className="lg:border-r lg:border-border-light dark:lg:border-border-dark lg:pr-12">
-          <div className="flex items-center gap-2 pb-4">
-            <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <h3 className="text-lg font-bold uppercase tracking-wider">Now</h3>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
-              <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Location</span>
-              <span className="text-base">Paris, France</span>
-            </div>
-            <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
-              <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Working on</span>
-              <span className="text-base">Kestra next big steps + AI vision</span>
-            </div>
-            <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
-              <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Reading</span>
-              <span className="text-base italic">Things That Make Us Smart — D. Norman</span>
-            </div>
-            <div className="flex flex-col gap-1 border-t border-border-light dark:border-border-dark pt-4">
-              <span className="text-xs font-semibold uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Building</span>
-              <span className="text-base">The New Printer</span>
-            </div>
-          </div>
-        </aside>
-        </Reveal>
+        </section>
 
         {/* Selected Projects */}
-        <div className="lg:col-span-8">
-          <div className="flex items-end justify-between border-b border-border-light dark:border-border-dark pb-4 mb-8">
-            <h3 className="text-3xl font-display">Selected Projects</h3>
-            <Link href="/projects" className="text-sm font-bold text-primary hover:underline">
-              View All
+        <section className="pt-20 md:pt-28">
+          <div className="mb-10 flex items-end justify-between border-b border-border-dark pb-4">
+            <h3 className="font-display text-3xl">Selected Projects</h3>
+            <Link href="/projects" className="text-sm font-medium text-accent transition-opacity hover:opacity-70">
+              View All →
             </Link>
           </div>
 
@@ -307,8 +271,8 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

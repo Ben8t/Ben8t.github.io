@@ -2,41 +2,40 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="w-full px-6 py-12 md:px-12 border-t border-border-light dark:border-border-dark mt-auto bg-surface-light dark:bg-surface-dark">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-        <div className="flex flex-col gap-2">
-          <span className="font-display text-2xl">Benoit</span>
-          <p className="text-sm text-text-muted-light dark:text-text-muted-dark max-w-xs">
-            Product & Data Engineer<br />
-            Based in Paris, France
-          </p>
+    <footer className="mt-auto w-full border-t border-border-dark px-6 py-10 md:px-12">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-1">
+          <span className="font-display text-xl">
+            Benoit<span className="text-accent">.</span>
+          </span>
+          <span className="text-xs text-text-muted-dark">
+            © {new Date().getFullYear()} — Beyond engineering.
+          </span>
         </div>
-        
-        <div className="flex flex-col md:items-end gap-4">
-          <div className="flex gap-6 text-sm font-medium">
-            <a
-              href="https://www.linkedin.com/in/pimpaudben/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/Ben8t"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              GitHub
-            </a>
-            <Link href="mailto:pimpaudben@gmail.com" className="hover:text-primary transition-colors">
-              Email
-            </Link>
-          </div>
-          <div className="text-xs text-text-muted-light dark:text-text-muted-dark font-mono">
-            © {new Date().getFullYear()} Benoit. All rights reserved.
-          </div>
+
+        <div className="flex gap-6 text-[11px] uppercase tracking-[0.18em] text-text-muted-dark">
+          <a
+            href="https://www.linkedin.com/in/pimpaudben/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-text-main-dark"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/Ben8t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-text-main-dark"
+          >
+            GitHub
+          </a>
+          <Link
+            href="mailto:pimpaudben@gmail.com"
+            className="transition-colors hover:text-text-main-dark"
+          >
+            Email
+          </Link>
         </div>
       </div>
     </footer>

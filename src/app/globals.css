@@ -1,50 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #8B96A8;
-  --color-accent: #C9A96E;
-  
-  --color-background-light: #F5F5F0;
-  --color-background-dark: #1A1816;
+/* Class-based dark mode — the site is forced dark (portfolio.html aesthetic). */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --color-surface-light: #FFFFFF;
-  --color-surface-dark: #26231F;
-  
-  --color-text-main-light: #1F1F1F;
-  --color-text-main-dark: #E5E5E5;
-  --color-text-muted-light: #666666;
-  --color-text-muted-dark: #A3A3A3;
-  
-  --color-border-light: #E5E5E5;
-  --color-border-dark: #404040;
-  
+@theme {
+  /* Accents: white for highlights, silver where a softer tone is needed */
+  --color-primary: #C4CDD6;
+  --color-accent: #e8e6e1;
+
+  /* Dark-only palette ported from portfolio.html */
+  --color-background-light: #0a0a0a;
+  --color-background-dark: #0a0a0a;
+
+  --color-surface-light: #141311;
+  --color-surface-dark: #141311;
+
+  --color-text-main-light: #e8e6e1;
+  --color-text-main-dark: #e8e6e1;
+  --color-text-muted-light: #7a7770;
+  --color-text-muted-dark: #7a7770;
+
+  --color-border-light: #1f1d1a;
+  --color-border-dark: #1f1d1a;
+
   --font-display: "Instrument Serif", serif;
   --font-body: "Inter", sans-serif;
-  
+
   --radius: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
 }
 
 :root {
-  --background: #F5F5F0;
-  --foreground: #1F1F1F;
-}
-
-.dark {
-  --background: #1A1816;
-  --foreground: #E5E5E5;
+  --background: #0a0a0a;
+  --foreground: #e8e6e1;
+  --header-h: 80px;
 }
 
 html {
   scroll-behavior: smooth;
+  background: #0a0a0a;
 }
 
 body {
-  background: var(--background);
+  /* transparent so the fixed .starfield-bg (z-index:-1) shows through;
+     the base color lives on <html> above. */
+  background: transparent;
   color: var(--foreground);
   font-family: "Inter", sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Full-page starfield — sits behind all content so the whole site reads as a
+   continuous night sky (the hero's WebGL canvas paints its own stars on top). */
+.starfield-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #0a0a0a;
+  background-repeat: repeat;
+  background-image:
+    radial-gradient(1.5px 1.5px at 40px 60px,   rgba(233, 230, 225, 0.9),  transparent 100%),
+    radial-gradient(1px 1px   at 130px 30px,    rgba(233, 230, 225, 0.55), transparent 100%),
+    radial-gradient(1.5px 1.5px at 210px 130px, rgba(233, 230, 225, 0.75), transparent 100%),
+    radial-gradient(1px 1px   at 300px 70px,    rgba(200, 210, 225, 0.5),  transparent 100%),
+    radial-gradient(1px 1px   at 90px 165px,    rgba(200, 210, 225, 0.45), transparent 100%),
+    radial-gradient(1px 1px   at 60px 80px,     rgba(233, 230, 225, 0.5),  transparent 100%),
+    radial-gradient(1.5px 1.5px at 180px 40px,  rgba(233, 230, 225, 0.7),  transparent 100%),
+    radial-gradient(1px 1px   at 20px 200px,    rgba(200, 210, 225, 0.4),  transparent 100%);
+  background-size:
+    420px 420px, 420px 420px, 420px 420px, 420px 420px,
+    260px 260px, 260px 260px, 260px 260px, 260px 260px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .starfield-bg {
+    animation: star-drift 240s linear infinite;
+  }
+}
+
+@keyframes star-drift {
+  from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+  to   { background-position: 0 -1200px, 0 -1200px, 0 -1200px, 0 -1200px, 0 -780px, 0 -780px, 0 -780px, 0 -780px; }
 }
 
 /* Explicit font utility classes */
@@ -57,7 +97,8 @@ body {
 }
 
 ::selection {
-  background-color: rgba(139, 150, 168, 0.3);
+  background-color: rgba(201, 169, 110, 0.28);
+  color: #f4f1ea;
 }
 
 ::-webkit-scrollbar {
@@ -69,12 +110,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(139, 150, 168, 0.35);
+  background-color: rgba(201, 169, 110, 0.28);
   border-radius: 20px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background-color: rgba(139, 150, 168, 0.25);
 }
 
 /* Silver gradient utilities */
@@ -93,34 +130,6 @@ body {
 .btn-silver:hover {
   background: linear-gradient(135deg, #7A8799 0%, #B8C3CC 50%, #7A8799 100%);
   color: #1A1A1A;
-}
-
-/* Gold / champagne gradient utilities */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #8B6232 0%, #C9A96E 35%, #F0D898 55%, #C9A96E 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gold-gradient {
-  background: linear-gradient(135deg, #EDD48A 0%, #C9A96E 40%, #9A7040 70%, #EDD48A 100%);
-}
-
-.btn-gold {
-  background: linear-gradient(135deg, #E2C97A 0%, #C9A96E 35%, #9A7040 65%, #C9A96E 85%, #E2C97A 100%);
-  color: #2A1F0E;
-  background-size: 200% 200%;
-  transition: background-position 0.4s ease, opacity 0.2s ease;
-}
-
-.btn-gold:hover {
-  background-position: right center;
-  opacity: 0.92;
-}
-
-.selected-gold-card {
-  background: linear-gradient(135deg, rgba(240, 216, 152, 0.12) 0%, rgba(201, 169, 110, 0.08) 60%, rgba(154, 112, 64, 0.10) 100%);
 }
 
 /* Project card hover effects */
