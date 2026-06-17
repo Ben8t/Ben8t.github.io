@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 import * as opentype from "opentype.js";
@@ -8,6 +8,14 @@ import * as opentype from "opentype.js";
 export function RefractionHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("pimpaudben@gmail.com").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -370,12 +378,32 @@ export function RefractionHero() {
         </h1>
         <p className="absolute bottom-[9%] left-1/2 max-w-[540px] -translate-x-1/2 px-6 text-center text-[15px] leading-relaxed text-[rgba(232,230,225,0.7)]">
           If you want to know more about me, send me an email at{" "}
-          <a
-            href="mailto:pimpaudben@gmail.com"
-            className="pointer-events-auto font-display not-italic text-[#e8e6e1] underline underline-offset-4 transition-opacity hover:opacity-70"
-          >
-            pimpaudben@gmail.com
-          </a>
+          <span className="inline-flex items-center gap-2 align-middle">
+            <a
+              href="mailto:pimpaudben@gmail.com"
+              className="pointer-events-auto font-display not-italic text-[#e8e6e1] underline underline-offset-4 transition-opacity hover:opacity-70"
+            >
+              pimpaudben@gmail.com
+            </a>
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label={copied ? "Email copied" : "Copy email address"}
+              title={copied ? "Copied!" : "Copy email"}
+              className="pointer-events-auto inline-flex items-center text-[#e8e6e1] opacity-60 transition-opacity hover:opacity-100"
+            >
+              {copied ? (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              ) : (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <rect x="9" y="9" width="11" height="11" rx="2" ry="2" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 15V5a2 2 0 012-2h10" />
+                </svg>
+              )}
+            </button>
+          </span>
         </p>
       </div>
     </div>

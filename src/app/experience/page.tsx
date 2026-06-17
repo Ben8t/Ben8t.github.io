@@ -2,7 +2,7 @@ const experiences = [
   {
     id: 1,
     company: "Kestra",
-    role: "Product & Sales Engineer",
+    role: "Product Manager & Solutions Engineer",
     location: "Paris, France",
     period: "2023 — Present",
     current: true,

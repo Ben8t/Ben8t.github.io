@@ -1,6 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  year: string;
+  description: string;
+  tags: string[];
+  order?: number;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: "The New Printer",
@@ -8,6 +18,7 @@ const projects = [
     year: "2025",
     description: "A lightweight CLI tool that transforms web articles into print-ready PDFs with magazine-style aesthetic. Because reading on paper just feels better.",
     tags: ["Python", "CLI", "LaTeX", "Typography"],
+    order: 2,
   },
   {
     id: 2,
@@ -97,9 +108,23 @@ const projects = [
     description: "The official Kestra agent skills for Claude Code — enabling AI agents to migrate tools to Kestra, deploy flows, automate QA, and drive product workflows directly from natural language.",
     tags: ["AI", "Claude Code", "Kestra", "Agentic Coding", "Developer Tools"],
   },
+  {
+    id: 13,
+    title: "Specs Should Be Equations, Not Essays",
+    category: "Essay & Thought Leadership",
+    year: "2026",
+    description: "An essay on the shift from writing code to writing specs — and why mathematics (sets, functions, relations, invariants) beats natural language for precision, composability, and falsifiability.",
+    tags: ["Essay", "Specs", "Mathematics", "AI", "Agentic Coding"],
+    order: 1,
+  },
 ];
 
 const sortedProjects = [...projects].sort((a, b) => {
+  // Manual ordering (lowest first) takes precedence over year-based sorting.
+  if (a.order != null || b.order != null) {
+    if (a.order != null && b.order != null) return a.order - b.order;
+    return a.order != null ? -1 : 1;
+  }
   const yearA = parseInt(a.year.split("-").pop()!);
   const yearB = parseInt(b.year.split("-").pop()!);
   return yearB - yearA;
@@ -153,6 +178,8 @@ export default function ProjectsPage() {
                 ? "/projects/kestractl"
                 : project.id === 12
                 ? "/projects/kestra-agent-skills"
+                : project.id === 13
+                ? "/projects/specs-should-be-equations"
                 : "#"
             }
             className="group cursor-pointer project-card flex flex-col gap-6"
@@ -239,6 +266,13 @@ export default function ProjectsPage() {
                 <Image
                   src="/kestra-agent-skills-thumbnail.png"
                   alt="Kestra Agent Skills project thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              ) : project.id === 13 ? (
+                <Image
+                  src="/specs-equations-thumbnail.png"
+                  alt="Specs Should Be Equations, Not Essays thumbnail"
                   fill
                   className="object-cover"
                 />

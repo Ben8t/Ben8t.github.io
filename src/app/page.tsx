@@ -2,12 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { RefractionHero } from "@/components/RefractionHero";
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  year: string;
+  order?: number;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: "The New Printer",
     category: "CLI Tool",
     year: "2025",
+    order: 2,
   },
   {
     id: 2,
@@ -75,9 +84,21 @@ const projects = [
     category: "AI & Developer Tools",
     year: "2026",
   },
+  {
+    id: 13,
+    title: "Specs Should Be Equations, Not Essays",
+    category: "Essay & Thought Leadership",
+    year: "2026",
+    order: 1,
+  },
 ];
 
 const sortedProjects = [...projects].sort((a, b) => {
+  // Manual ordering (lowest first) takes precedence over year-based sorting.
+  if (a.order != null || b.order != null) {
+    if (a.order != null && b.order != null) return a.order - b.order;
+    return a.order != null ? -1 : 1;
+  }
   const yearA = parseInt(a.year.split("-").pop()!);
   const yearB = parseInt(b.year.split("-").pop()!);
   return yearB - yearA;
@@ -108,7 +129,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={80} className="flex flex-col gap-2">
               <span className="text-[10px] uppercase tracking-[0.32em] text-text-muted-dark">Working on</span>
-              <span className="text-[15px] leading-relaxed">Kestra next big steps + AI vision</span>
+              <span className="text-[15px] leading-relaxed">Exploring agentic algebra and how to make play a center part of product design</span>
             </Reveal>
             <Reveal delay={160} className="flex flex-col gap-2">
               <span className="text-[10px] uppercase tracking-[0.32em] text-text-muted-dark">Reading</span>
@@ -161,6 +182,8 @@ export default function Home() {
                     ? "/projects/kestractl"
                     : project.id === 12
                     ? "/projects/kestra-agent-skills"
+                    : project.id === 13
+                    ? "/projects/specs-should-be-equations"
                     : "/projects"
                 }
                 className="group cursor-pointer project-card flex flex-col gap-4"
@@ -247,6 +270,13 @@ export default function Home() {
                     <Image
                       src="/kestra-agent-skills-thumbnail.png"
                       alt="Kestra Agent Skills project thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  ) : project.id === 13 ? (
+                    <Image
+                      src="/specs-equations-thumbnail.png"
+                      alt="Specs Should Be Equations, Not Essays thumbnail"
                       fill
                       className="object-cover"
                     />
