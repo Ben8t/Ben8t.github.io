@@ -1,158 +1,103 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code (claude.ai/code) when working in this repository.
 
 ## Project Overview
 
-This is a personal portfolio website for Benoit, built as a static Next.js 16 site with Tailwind CSS 4. The site showcases professional experience, projects, and writings, and is configured for static export and deployment on Vercel.
+A deliberately tiny personal site for Benoit: one page, one interactive element.
+Static Next.js export, deployed on Vercel.
+
+The governing constraint is **weight**. The page should feel like raw HTML.
+Before adding anything — a dependency, a font, an image, a route — the default
+answer is no. If something can be plain text instead of an asset, it should be.
 
 ## Tech Stack
 
-- **Framework**: Next.js 16.1.1 (App Router with static export)
-- **React**: 19.1.0
-- **Styling**: Tailwind CSS 4.1.18 with custom theme
-- **TypeScript**: 5.8.3
-- **Fonts**:
-  - Display: "Instrument Serif" (for headlines)
-  - Body: "Inter" (for content)
-- **Deployment**: Vercel (static export via `output: 'export'`)
+- Next.js 16.1.1, App Router, `output: 'export'`
+- React 19.1.0
+- TypeScript 5.8.3
+- **No CSS framework.** Plain CSS in `src/app/globals.css`.
+- **No web fonts.** The OS monospace stack (`ui-monospace, SFMono-Regular, …`).
+- **No images.** The portrait is ASCII text in `src/app/portrait.ts`.
+- Runtime dependencies: `next`, `react`, `react-dom`. That is the whole list.
 
-## Build & Development Commands
+## Commands
 
 ```bash
-# Install dependencies (Node >= 20.x required)
 npm install
-
-# Start development server
-npm run dev
-
-# Build for production (generates static HTML in /out directory)
-npm run build
-
-# Start production server (for testing locally)
-npm start
-
-# Run linter
-npm run lint
+npm run dev      # dev server
+npm run build    # static export to /out
 ```
 
-## Project Architecture
+There is no lint script: `next lint` was removed in Next 16 and no ESLint
+config was carried over.
 
-### Directory Structure
+## Structure
 
 ```
-/src
-  /app                  # Next.js App Router pages
-    /experience         # Experience timeline page
-    /projects           # Projects gallery page
-    layout.tsx          # Root layout with Header/Footer
-    page.tsx            # Home page with hero, "Now" section, and featured projects
-    globals.css         # Global styles with Tailwind and custom theme
-  /components           # Reusable React components
-    Header.tsx          # Client-side navigation with theme toggle
-    Footer.tsx          # Footer component
-/assets/images          # Static image assets (experience company logos)
-/public                 # Public static assets
+src/app/
+  layout.tsx      html/body shell + metadata
+  page.tsx        the entire site
+  globals.css     the entire stylesheet
+  portrait.ts     ASCII portrait as a template literal
+  icon.png        BP monogram favicon
+  apple-icon.png
+src/components/
+  canvasui/DecryptReveal.tsx   vendored, see below
+  rect-cache.ts                local fill-in for a missing canvasui dep
 ```
 
-### Key Configuration Files
+## DecryptReveal
 
-- **next.config.ts**: Configured for static export (`output: 'export'`) with unoptimized images
-- **tsconfig.json**: Path aliases (`@/*` → `./src/*`), strict mode enabled
-- **vercel.json**: Custom install command to ensure clean npm install
+`src/components/canvasui/DecryptReveal.tsx` is vendored verbatim from the
+[canvasui](https://canvasui.dev/docs/components/decrypt-reveal) shadcn registry
+(`https://canvasui.dev/r/decrypt-reveal-react.json`). Two things to know:
 
-### Design System
+1. **It ships a broken import.** The file does
+   `import { createRectCache } from "../rect-cache"`, but the registry does not
+   publish a `rect-cache` item. `src/components/rect-cache.ts` is a local
+   reimplementation. If you re-pull the component from the registry, keep that
+   file.
 
-The site uses a custom design system defined in `src/app/globals.css`:
+2. **It is patched locally to work outside Chrome.** The effect needs the
+   [HTML-in-Canvas API](https://developer.chrome.com/blog/html-in-canvas-origin-trial)
+   (`drawElementImage` + `requestPaint`) to turn DOM into a texture. As of
+   Chrome 148-150 that is an origin trial, and no other engine intends to
+   implement it -- so upstream, the effect renders nothing at all for almost
+   every visitor.
 
-**Color Palette:**
-- Primary accent: `#D97757` (coral/terracotta)
-- Light mode: Off-white background (`#F5F5F0`), dark text
-- Dark mode: Dark background (`#1A1A1A`), light text
-- Consistent use of muted colors for secondary text and borders
+   The patch adds a `paintSource` option: a callback that draws the content into
+   the source canvas with ordinary Canvas 2D calls. When HTML-in-Canvas is
+   missing but a painter is supplied, the shader pipeline runs on that instead,
+   so the cipher works in every browser with WebGL2. All local changes are
+   marked `LOCAL ADDITION` in the file. They are:
 
-**Typography:**
-- Display font: "Instrument Serif" (italic for emphasis)
-- Body font: "Inter" (weights: 300-700)
-- Font classes: `.font-display`, `.font-body`
+   - a `paintSource` option on `DecryptRevealOptions`
+   - `manualPaint` / `hasContent` flags, and `repaintSource()`
+   - `hasContent` replacing `htmlInCanvas` at the four gates that ask whether a
+     content texture can be built at all
+   - `DEFAULTS` typed to keep `paintSource` optional
+   - the React wrapper hiding the DOM copy once the cipher is confirmed running
 
-**Theme Toggle:**
-- Client-side theme management in Header component
-- Theme stored in localStorage
-- Respects system preference on first load
-- Dark mode class on `<html>` element
+   Re-pulling the component from the registry drops all of this. Re-apply it.
 
-### Component Patterns
+   **The DOM children stay in the tree** at `opacity: 0` -- the link is still
+   clickable, focusable, and readable by screen readers, and the output canvas
+   is `pointer-events: none` so clicks fall through. The card only hides once an
+   instance exists, so no-JS and no-WebGL visitors still see it.
 
-**Header Component** (`src/components/Header.tsx`):
-- Client component (`"use client"`)
-- Manages theme toggle and mobile menu state
-- Uses Next.js `usePathname` for active link highlighting
-- Includes newsletter subscription link
+   **`paintCard()` in `Newsletter.tsx` mirrors `.card*` in `globals.css`.**
+   One replaces the other visually, so the metrics must match. Change both
+   together.
 
-**Page Structure:**
-All pages follow a consistent layout pattern:
-1. Large display heading with italics/mixed styles
-2. Descriptive subtitle paragraph
-3. Main content grid/layout
-4. Heavy use of flexbox and Tailwind grid utilities
+## Deployment
 
-**Data Management:**
-- Static data arrays defined inline within page components
-- No external CMS or API calls
-- Projects and experiences are hardcoded objects with metadata
+Vercel, `framework: nextjs` in `vercel.json`, static export from `/out`.
+No CI. No API routes (static export forbids them).
 
-### Static Export Considerations
+## History
 
-Since this is a static site (`output: 'export'` in next.config.ts):
-- No server-side rendering or API routes
-- Images are unoptimized (`images.unoptimized: true`)
-- All pages pre-rendered at build time to `/out` directory
-- Client-side navigation and interactivity still work
-- Theme toggle uses browser localStorage and effects
-
-### Styling Conventions
-
-- Tailwind CSS 4 with `@theme` directive in globals.css
-- Responsive breakpoints: mobile-first, then `md:` and `lg:`
-- Dark mode: `dark:` variant on all color classes
-- Custom CSS for scrollbar styling and selection colors
-- Utility-first approach with minimal custom CSS
-
-## Common Development Workflows
-
-### Adding a New Project
-
-1. Edit `src/app/page.tsx` and `src/app/projects/page.tsx`
-2. Add project object to the `projects` array
-3. Set `featured: true` for one project to appear in featured section
-4. Include title, category, year, description, and tags
-
-### Adding Experience
-
-1. Edit `src/app/experience/page.tsx`
-2. Add experience object to `experiences` array
-3. Set `current: true` for active role (affects timeline styling)
-4. Include company, role, location, period, achievements, and tags
-
-### Updating Theme Colors
-
-1. Edit `src/app/globals.css` in the `@theme` block
-2. Update custom CSS properties (e.g., `--color-primary`)
-3. Maintain consistency between light/dark mode variants
-
-### Testing Production Build
-
-```bash
-npm run build
-# Output is in /out directory
-# Verify static files generated correctly
-```
-
-## Important Notes
-
-- The site requires Node >= 20.x (specified in package.json engines)
-- Static export means no dynamic routes or server functions
-- All images should be placed in `/public` or `/assets` for static export
-- Theme preferences persist across sessions via localStorage
-- Mobile-first responsive design throughout
+Everything before this rebuild — 13 project case studies, `/experience`,
+`/ai-sessions` with its Supabase form, a three.js refraction hero — lives in
+git history on `master` and the older feature branches. It was removed
+deliberately, not lost.

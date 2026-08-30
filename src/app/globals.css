@@ -1,188 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
-@import "tailwindcss";
+/*
+ * Everything the site needs. No framework, no web fonts, no network requests
+ * beyond the document itself. The type is the OS monospace stack, so the page
+ * paints as soon as the HTML lands.
+ */
 
-/* Class-based dark mode — the site is forced dark (portfolio.html aesthetic). */
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-  /* Accents: white for highlights, silver where a softer tone is needed */
-  --color-primary: #C4CDD6;
-  --color-accent: #e8e6e1;
-
-  /* Dark-only palette ported from portfolio.html */
-  --color-background-light: #0a0a0a;
-  --color-background-dark: #0a0a0a;
-
-  --color-surface-light: #141311;
-  --color-surface-dark: #141311;
-
-  --color-text-main-light: #e8e6e1;
-  --color-text-main-dark: #e8e6e1;
-  --color-text-muted-light: #7a7770;
-  --color-text-muted-dark: #7a7770;
-
-  --color-border-light: #1f1d1a;
-  --color-border-dark: #1f1d1a;
-
-  --font-display: "Instrument Serif", serif;
-  --font-body: "Inter", sans-serif;
-
-  --radius: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-}
-
-:root {
-  --background: #0a0a0a;
-  --foreground: #e8e6e1;
-  --header-h: 80px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  background: #0a0a0a;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  /* transparent so the fixed .starfield-bg (z-index:-1) shows through;
-     the base color lives on <html> above. */
-  background: transparent;
-  color: var(--foreground);
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
+  margin: 0;
+  background: #fff;
+  color: #000;
+  font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 16px;
+  line-height: 24px;
+  font-synthesis: none;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Full-page starfield — sits behind all content so the whole site reads as a
-   continuous night sky (the hero's WebGL canvas paints its own stars on top). */
-.starfield-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-color: #0a0a0a;
-  background-repeat: repeat;
-  background-image:
-    radial-gradient(1.5px 1.5px at 40px 60px,   rgba(233, 230, 225, 0.9),  transparent 100%),
-    radial-gradient(1px 1px   at 130px 30px,    rgba(233, 230, 225, 0.55), transparent 100%),
-    radial-gradient(1.5px 1.5px at 210px 130px, rgba(233, 230, 225, 0.75), transparent 100%),
-    radial-gradient(1px 1px   at 300px 70px,    rgba(200, 210, 225, 0.5),  transparent 100%),
-    radial-gradient(1px 1px   at 90px 165px,    rgba(200, 210, 225, 0.45), transparent 100%),
-    radial-gradient(1px 1px   at 60px 80px,     rgba(233, 230, 225, 0.5),  transparent 100%),
-    radial-gradient(1.5px 1.5px at 180px 40px,  rgba(233, 230, 225, 0.7),  transparent 100%),
-    radial-gradient(1px 1px   at 20px 200px,    rgba(200, 210, 225, 0.4),  transparent 100%);
-  background-size:
-    420px 420px, 420px 420px, 420px 420px, 420px 420px,
-    260px 260px, 260px 260px, 260px 260px, 260px 260px;
+a {
+  color: #0000ee;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .starfield-bg {
-    animation: star-drift 240s linear infinite;
-  }
+a:visited {
+  color: #551a8b;
 }
 
-@keyframes star-drift {
-  from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
-  to   { background-position: 0 -1200px, 0 -1200px, 0 -1200px, 0 -1200px, 0 -780px, 0 -780px, 0 -780px, 0 -780px; }
+a:hover {
+  text-decoration: none;
 }
 
-/* Explicit font utility classes */
-.font-display {
-  font-family: "Instrument Serif", serif;
+a:focus-visible,
+.card:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
 }
 
-.font-body {
-  font-family: "Inter", sans-serif;
+/* ---------------------------------------------------------------- layout */
+
+.page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 64px 24px;
+  text-align: center;
 }
 
-::selection {
-  background-color: rgba(201, 169, 110, 0.28);
-  color: #f4f1ea;
+.portrait {
+  width: 125px;
+  height: 125px;
+  margin: 0 0 4px;
+  user-select: none;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+.intro {
+  margin: 0;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.intro span {
+  display: block;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(201, 169, 110, 0.28);
-  border-radius: 20px;
+.intro span + span {
+  margin-top: 14px;
 }
 
-/* Silver gradient utilities */
-.silver-gradient-text {
-  background: linear-gradient(135deg, #6B7A8D 0%, #C4CDD6 45%, #8B96A8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.prompt {
+  margin: 0;
 }
 
-.btn-silver {
-  background: linear-gradient(135deg, #8B96A8 0%, #C4CDD6 50%, #8B96A8 100%);
-  color: #1A1A1A;
+.contact {
+  margin: 0;
 }
 
-.btn-silver:hover {
-  background: linear-gradient(135deg, #7A8799 0%, #B8C3CC 50%, #7A8799 100%);
-  color: #1A1A1A;
-}
-
-/* Project card hover effects */
-.project-card:hover .project-image {
-  transform: scale(1.03);
-}
-
-/* ---------- Motion ---------- */
-
-:root {
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --motion-distance: 12px;
-  --motion-duration: 500ms;
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translate3d(0, var(--motion-distance), 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.anim-fade-up {
-  animation: fade-up var(--motion-duration) var(--ease-out-quart) both;
-  animation-delay: var(--motion-delay, 0ms);
-  will-change: transform, opacity;
-}
+/* ------------------------------------------------------------ the cipher */
 
 .reveal {
-  opacity: 0;
-  transform: translate3d(0, var(--motion-distance), 0);
-  transition:
-    opacity var(--motion-duration) var(--ease-out-quart),
-    transform var(--motion-duration) var(--ease-out-quart);
-  transition-delay: var(--motion-delay, 0ms);
-  will-change: transform, opacity;
+  width: 520px;
+  max-width: 100%;
+  height: 120px;
 }
 
-.reveal.is-in-view {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+/* The card is the real, readable content. On Chrome with the HTML-in-Canvas
+   flag it gets ciphered into ASCII and decodes around the cursor; everywhere
+   else this is simply what you see, so it has to stand on its own. */
+/* Mirrored by paintCard() in Newsletter.tsx -- change both together. */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  background: #fff;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .anim-fade-up,
+.card-title {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+}
+
+.card-body {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px 0 0;
+  color: #000;
+}
+
+.card-cta {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+  color: #0000ee;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.card:hover .card-cta {
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------- narrow */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .page {
+    gap: 26px;
+    padding: 48px 20px;
+  }
+
+  .portrait {
+    width: 105px;
+    height: 105px;
+  }
+
   .reveal {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
+    height: 120px;
   }
 }
