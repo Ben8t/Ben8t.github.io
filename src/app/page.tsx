@@ -1,6 +1,7 @@
 import { Newsletter } from "@/components/Newsletter";
 
 const EMAIL = "pimpaudben@gmail.com";
+const LINKEDIN = "https://www.linkedin.com/in/pimpaudben/";
 
 export default function Home() {
   return (
@@ -27,7 +28,12 @@ export default function Home() {
       <Newsletter />
 
       <p className="contact">
-        Want to say hi? <a href={`mailto:${EMAIL}`}>Click here.</a>
+        <span>
+          Want to say hi? <a href={`mailto:${EMAIL}`}>Click here.</a>
+        </span>
+        <span>
+          Want to connect? <a href={LINKEDIN}>Click here.</a>
+        </span>
       </p>
     </main>
   );
