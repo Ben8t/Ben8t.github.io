@@ -74,7 +74,7 @@ export default function Home() {
           </a>
         </span>
         <span>
-          Want to learn about what I explored recently?{" "}
+          Want the latest?{" "}
           <a href={X} onClick={handleSocialProfileClick}>
             Click here.
           </a>
