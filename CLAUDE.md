@@ -19,7 +19,32 @@ answer is no. If something can be plain text instead of an asset, it should be.
 - **No CSS framework.** Plain CSS in `src/app/globals.css`.
 - **No web fonts.** The OS monospace stack (`ui-monospace, SFMono-Regular, …`).
 - **No images.** The portrait is ASCII text in `src/app/portrait.ts`.
-- Runtime dependencies: `next`, `react`, `react-dom`. That is the whole list.
+- Runtime dependencies: `next`, `react`, `react-dom`, `posthog-js`. That is the
+  whole list. `posthog-js` is the one deliberate exception to the weight rule.
+
+## Analytics (PostHog)
+
+Set up by the PostHog wizard. EU cloud (`https://eu.i.posthog.com`).
+
+- `instrumentation-client.ts` (repo root) runs `posthog.init` before hydration,
+  with exception capture and logs on. In dev it **throws** if either env var is
+  missing; in production it silently skips init.
+- Custom events, each guarded by an `isPostHogConfigured` check:
+  `email_contact_clicked` and `professional_profile_clicked` in `page.tsx`,
+  `newsletter_link_clicked` in `Newsletter.tsx`.
+- `src/app/global-error.tsx` reports uncaught errors via `captureException`.
+- `page.tsx` is a client component (`"use client"`) because of the click
+  handlers. Metadata lives in `layout.tsx`, so that is fine.
+
+Env vars (see `.env.example`): `NEXT_PUBLIC_POSTHOG_KEY` and
+`NEXT_PUBLIC_POSTHOG_HOST`. They are inlined at build time, so they must exist
+wherever the build runs. Both are public (the `phc_` project key ships in the
+client JS anyway), so they are committed in `.env.production`, which Next
+loads for `next build` locally and in Cloudflare Workers Builds. No dashboard
+variables needed. Without them the site deploys with no tracking and no error.
+
+No reverse proxy: the wizard's usual Next `rewrites` are incompatible with
+`output: 'export'`, so events go straight to PostHog's host.
 
 ## Commands
 
@@ -36,9 +61,12 @@ config was carried over.
 ## Structure
 
 ```
+instrumentation-client.ts   PostHog init
+wrangler.jsonc              Cloudflare Worker config
 src/app/
   layout.tsx      html/body shell + metadata
   page.tsx        the entire site
+  global-error.tsx  error boundary, reports to PostHog
   globals.css     the entire stylesheet
   portrait.ts     ASCII portrait as a template literal
   icon.png        BP monogram favicon

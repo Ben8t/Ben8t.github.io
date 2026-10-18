@@ -1,8 +1,12 @@
 "use client";
 
 import { DecryptReveal } from "@/components/canvasui/DecryptReveal";
+import posthog from "posthog-js";
 
 const SUBSTACK = "https://fromanengineersight.substack.com/";
+const isPostHogConfigured = Boolean(
+  process.env.NEXT_PUBLIC_POSTHOG_KEY && process.env.NEXT_PUBLIC_POSTHOG_HOST,
+);
 
 const MONO =
   'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace';
@@ -65,6 +69,15 @@ function paintCard(ctx: CanvasRenderingContext2D, w: number, h: number) {
 }
 
 export function Newsletter() {
+  const handleNewsletterClick = () => {
+    if (isPostHogConfigured) {
+      posthog.capture("newsletter_link_clicked", { destination: "substack" });
+      posthog.logger.info("portfolio newsletter navigation requested", {
+        destination: "substack",
+      });
+    }
+  };
+
   return (
     <DecryptReveal
       className="reveal"
@@ -74,7 +87,12 @@ export function Newsletter() {
       scramble={0.06}
       paintSource={paintCard}
     >
-      <a className="card" href={SUBSTACK} rel="me noreferrer">
+      <a
+        className="card"
+        href={SUBSTACK}
+        rel="me noreferrer"
+        onClick={handleNewsletterClick}
+      >
         <h1 className="card-title">{TITLE}</h1>
         <p className="card-body">
           {BODY.map((line, i) => (
