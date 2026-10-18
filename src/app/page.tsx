@@ -5,6 +5,7 @@ import posthog from "posthog-js";
 
 const EMAIL = "pimpaudben@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/pimpaudben/";
+const X = "https://x.com/Ben8t";
 const isPostHogConfigured = Boolean(
   process.env.NEXT_PUBLIC_POSTHOG_KEY && process.env.NEXT_PUBLIC_POSTHOG_HOST,
 );
@@ -24,6 +25,15 @@ export default function Home() {
       posthog.capture("professional_profile_clicked", { profile: "linkedin" });
       posthog.logger.info("portfolio professional profile navigation requested", {
         profile: "linkedin",
+      });
+    }
+  };
+
+  const handleSocialProfileClick = () => {
+    if (isPostHogConfigured) {
+      posthog.capture("social_profile_clicked", { profile: "x" });
+      posthog.logger.info("portfolio social profile navigation requested", {
+        profile: "x",
       });
     }
   };
@@ -60,6 +70,12 @@ export default function Home() {
         <span>
           Want to connect?{" "}
           <a href={LINKEDIN} onClick={handleProfessionalProfileClick}>
+            Click here.
+          </a>
+        </span>
+        <span>
+          Want to learn about what I explored recently?{" "}
+          <a href={X} onClick={handleSocialProfileClick}>
             Click here.
           </a>
         </span>

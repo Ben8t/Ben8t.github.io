@@ -31,7 +31,7 @@ Set up by the PostHog wizard. EU cloud (`https://eu.i.posthog.com`).
   missing; in production it silently skips init.
 - Custom events, each guarded by an `isPostHogConfigured` check:
   `email_contact_clicked` and `professional_profile_clicked` in `page.tsx`,
-  `newsletter_link_clicked` in `Newsletter.tsx`.
+  `newsletter_link_clicked` in `Newsletter.tsx`, `social_profile_clicked` (X) in `page.tsx`.
 - `src/app/global-error.tsx` reports uncaught errors via `captureException`.
 - `page.tsx` is a client component (`"use client"`) because of the click
   handlers. Metadata lives in `layout.tsx`, so that is fine.
