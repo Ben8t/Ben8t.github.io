@@ -38,10 +38,10 @@ Set up by the PostHog wizard. EU cloud (`https://eu.i.posthog.com`).
 
 Env vars (see `.env.example`): `NEXT_PUBLIC_POSTHOG_KEY` and
 `NEXT_PUBLIC_POSTHOG_HOST`. They are inlined at build time, so they must exist
-wherever the build runs. Both are public (the `phc_` project key ships in the
-client JS anyway), so they are committed in `.env.production`, which Next
-loads for `next build` locally and in Cloudflare Workers Builds. No dashboard
-variables needed. Without them the site deploys with no tracking and no error.
+wherever the build runs: `.env.local` locally, and as build variables on the
+`benventure` Worker (Settings → Build → Variables and secrets) for Cloudflare
+Workers Builds. Env files are not committed. Without the variables the site
+deploys with no tracking and no error.
 
 No reverse proxy: the wizard's usual Next `rewrites` are incompatible with
 `output: 'export'`, so events go straight to PostHog's host.
