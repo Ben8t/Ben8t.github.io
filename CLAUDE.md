@@ -5,7 +5,7 @@ Guidance for Claude Code (claude.ai/code) when working in this repository.
 ## Project Overview
 
 A deliberately tiny personal site for Benoit: one page, one interactive element.
-Static Next.js export, deployed on Vercel.
+Static Next.js export, deployed on Cloudflare at benventure.net.
 
 The governing constraint is **weight**. The page should feel like raw HTML.
 Before adding anything — a dependency, a font, an image, a route — the default
@@ -27,6 +27,7 @@ answer is no. If something can be plain text instead of an asset, it should be.
 npm install
 npm run dev      # dev server
 npm run build    # static export to /out
+npm run deploy   # build + wrangler deploy to Cloudflare
 ```
 
 There is no lint script: `next lint` was removed in Next 16 and no ESLint
@@ -92,8 +93,15 @@ src/components/
 
 ## Deployment
 
-Vercel, `framework: nextjs` in `vercel.json`, static export from `/out`.
-No CI. No API routes (static export forbids them).
+Cloudflare Workers static assets, configured in `wrangler.jsonc`: the Worker
+`benventure` serves `/out` with no script, on the custom domains
+`benventure.net` and `www.benventure.net` (zone on Cloudflare, DNS records are
+managed by the custom-domain routes). Wrangler is not a dependency on purpose.
+
+Pushing to `master` deploys via Cloudflare Workers Builds (Git integration on
+the `benventure` Worker: build `npm run build`, deploy `npx wrangler deploy`).
+`npm run deploy` does the same thing from a local machine.
+No API routes (static export forbids them).
 
 ## History
 

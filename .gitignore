@@ -26,8 +26,9 @@ yarn-error.log*
 .env*.local
 .env
 
-# Vercel
+# Vercel (legacy) / Wrangler
 .vercel
+.wrangler
 
 # TypeScript
 *.tsbuildinfo

@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "benventure",
+  "compatibility_date": "2026-10-01",
+  // Static export only: no Worker script, Cloudflare serves /out directly.
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "benventure.net", "custom_domain": true },
+    { "pattern": "www.benventure.net", "custom_domain": true }
+  ]
+}
