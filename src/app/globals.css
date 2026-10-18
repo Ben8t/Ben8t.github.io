@@ -170,3 +170,11 @@ a:focus-visible,
     height: 120px;
   }
 }
+
+/* ----------------------------------------------------------------- games */
+
+.games {
+  margin: 0;
+  padding-left: 1.5em;
+  text-align: left;
+}

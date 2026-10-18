@@ -4,7 +4,8 @@ Guidance for Claude Code (claude.ai/code) when working in this repository.
 
 ## Project Overview
 
-A deliberately tiny personal site for Benoit: one page, one interactive element.
+A deliberately tiny personal site for Benoit: one page, one interactive element,
+plus a plain `/games` link list.
 Static Next.js export, deployed on Cloudflare at benventure.net.
 
 The governing constraint is **weight**. The page should feel like raw HTML.
@@ -65,7 +66,8 @@ instrumentation-client.ts   PostHog init
 wrangler.jsonc              Cloudflare Worker config
 src/app/
   layout.tsx      html/body shell + metadata
-  page.tsx        the entire site
+  page.tsx        the home page
+  games/page.tsx  /games: bullet list of links to the game subdomains
   global-error.tsx  error boundary, reports to PostHog
   globals.css     the entire stylesheet
   portrait.ts     ASCII portrait as a template literal
