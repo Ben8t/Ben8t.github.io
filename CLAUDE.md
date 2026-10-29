@@ -91,7 +91,7 @@ src/app/
   global-error.tsx  error boundary, reports to PostHog
   globals.css     the entire stylesheet
   portrait.ts     ASCII portrait as a template literal
-  icon.png        BP monogram favicon
+  icon.png        four-point star favicon
   apple-icon.png
 src/content/blog/  post Markdown files
 src/components/

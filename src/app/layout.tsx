@@ -4,10 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://pimpaudben.fr"),
   title: "Benoit Pimpaud",
-  description: "I build product at Kestra.",
   openGraph: {
     title: "Benoit Pimpaud",
-    description: "I build product at Kestra.",
     type: "website",
   },
 };
