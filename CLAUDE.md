@@ -56,8 +56,10 @@ No reverse proxy: the wizard's usual Next `rewrites` are incompatible with
   `# ` title, blank line = paragraph, single newline = line break (as in the
   file), `---` section break, `*em*`. Content after the last `---` renders as
   the afterword.
-- The drop cap is `.opening::first-letter` with `initial-letter: 4 3` (sinks
-  three lines, rises one). Browsers without it get a hand-sized float.
+- The drop cap is `.opening::first-letter`, a plain float sized in em. Not
+  `initial-letter`: Safari sizes that box differently from Chrome and the T
+  ended up on top of the text on iPhone. Pinyon's T overhangs its advance
+  width, so the float's right margin is what clears the stem.
 - Fonts: Libre Baskerville + Pinyon Script (drop cap, index heading) via
   `next/font/google` in `blog/layout.tsx`, self-hosted at build and loaded
   only on `/blog`.

@@ -24,8 +24,11 @@ Fashion design was my true passion, but I still didn't know what to do after hig
 
 I was good enough at school to escape the last one, but design internships were hard to find. So, on Uncle Ben's advice, I chose business economics as my major.
 
-I really liked how it mixed human psychology with economics. Most of the cases we studied were about executives and managers struggling to make their business "verifiable." That was the new word in town, born from the intelligence revolution of the last few years. The digital revolution at the start of the century had let companies automate what they could specify; now they were looking to automate what they could verify. A whole new field had emerged around defining business models entirely through mathematical models that, once implemented, could be run by mere analytics optimization.
-Beyond its analytical side, what interested me was that the bottleneck came from people's understanding of their own business. I already had my thesis title: "You can't verify what you don't understand."
+I really liked how it mixed human psychology with economics. Most of the cases we studied were about executives and managers struggling to make their business “verifiable.” That was the new word in town, born from the intelligence revolution of the last few years. Our teacher put it simply: the digital revolution at the start of the century had let companies automate what they could specify; now they could automate what they could verify. If a booster could try a task, get an automatic score, start over and try again thousands of times a night, it would end up better at it than any of us. If it couldn’t, it could only copy people and hope for the best.
+
+My favorite case was a clothing retailer. Fit was easy to verify: a garment fit a body scan or it didn’t, and boosters could practice on millions of simulated bodies. Tailors and fitting rooms disappeared almost overnight. Style was another story. Nobody could tell a booster whether an outfit was good, because that was taste, and taste changed from one person, and one season, to the next. So the stylists stayed in business.
+
+I loved that case as it reminded me of my grandmother: nobody had ever verified her advice; it just worked. The bottleneck wasn’t the boosters, it was people’s understanding of their own business. Before you can check whether something is good, you have to know what good is. I already had my thesis title: “You can’t verify what you don’t understand.”
 
 "Oh! Lego boosters!! I've waited so long for them!!"
 Tom had just opened the Lego set Santa had brought him.

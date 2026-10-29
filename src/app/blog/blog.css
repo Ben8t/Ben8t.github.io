@@ -133,27 +133,17 @@ body:has(.blog) {
   letter-spacing: 0.08em;
 }
 
-/* The initial is the paragraph's ::first-letter. Fallback: floated and sized
-   by hand to roughly four lines. */
+/* The initial is the paragraph's ::first-letter, floated over three lines
+   with its swash rising into the line above. A plain float rather than
+   initial-letter: Safari and Chrome size initial-letter boxes differently,
+   while float metrics come from the font alone. Sizes are in em of the
+   initial's own font-size, so it scales with the text. */
 .prose .opening::first-letter {
   float: left;
   font-family: var(--font-script), cursive;
-  font-size: 7.6em;
-  line-height: 0.8;
-  margin: 0.02em 0.22em 0 -0.04em;
-}
-
-/* Where supported, initial-letter sinks it exactly four lines, its baseline
-   on the fourth line's baseline, its cap line on the first line's. */
-@supports (initial-letter: 4) or (-webkit-initial-letter: 4) {
-  .prose .opening::first-letter {
-    float: none;
-    font-size: inherit;
-    line-height: inherit;
-    margin: 0 -3em 0 -0.06em;
-    -webkit-initial-letter: 4 3;
-    initial-letter: 4 3;
-  }
+  font-size: 8.4em;
+  line-height: 0.5;
+  margin: 0.04em 0.16em 0 -0.03em;
 }
 
 .lede {
@@ -196,11 +186,5 @@ body:has(.blog) {
 
   .blog-nav {
     margin-bottom: 48px;
-  }
-
-  @supports not ((initial-letter: 4) or (-webkit-initial-letter: 4)) {
-    .prose .opening::first-letter {
-      font-size: 6.6em;
-    }
   }
 }
