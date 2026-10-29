@@ -83,8 +83,9 @@ export default async function PostPage({ params }: Props) {
           <time dateTime={post.date}>{formatDate(post.date)}</time>
         </header>
         <div className="prose">{body.map(render)}</div>
+        {/* The favicon doubles as the end mark: no extra asset, already cached. */}
         <p className="ornament end" aria-hidden="true">
-          ✧
+          <img src="/icon.png" alt="" width={28} height={28} />
         </p>
         {afterword.length > 0 && (
           <footer className="afterword">

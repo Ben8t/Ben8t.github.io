@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pimpaudben.fr"),
+  metadataBase: new URL("https://benventure.net"),
   title: "Benoit Pimpaud",
   openGraph: {
     title: "Benoit Pimpaud",

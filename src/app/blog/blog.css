@@ -168,7 +168,12 @@ body:has(.blog) {
 }
 
 .ornament.end {
-  margin-top: 2em !important;
+  margin-top: 2.4em !important;
+  line-height: 0;
+}
+
+.ornament.end img {
+  mix-blend-mode: multiply; /* the icon's white ground takes the paper colour */
 }
 
 .afterword p {
