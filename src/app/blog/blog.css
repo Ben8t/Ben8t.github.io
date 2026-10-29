@@ -1,0 +1,201 @@
+/*
+ * /blog only: a printed page. Libre Baskerville set justified on warm paper,
+ * a Pinyon Script initial, and the shader grain from Paper.tsx multiplied
+ * over everything.
+ */
+
+body:has(.blog) {
+  background: #f7f6f2;
+}
+
+.blog {
+  min-height: 100svh;
+  background: #f7f6f2;
+  color: #1c1b18;
+  font-family: var(--font-serif), Baskerville, "Libre Baskerville", Georgia,
+    serif;
+  font-size: 17px;
+  line-height: 1.62;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.blog a,
+.blog a:visited {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.blog a:focus-visible {
+  outline-color: #1c1b18;
+}
+
+.sheet {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 72px 24px 120px;
+}
+
+.blog-nav {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 72px;
+}
+
+.blog-nav a {
+  text-decoration: none;
+}
+
+.blog-nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------- index */
+
+.blog-heading {
+  font-family: var(--font-script), cursive;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  margin: 0 0 40px;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 24px;
+  padding: 14px 0;
+  border-top: 1px solid rgb(28 27 24 / 0.2);
+}
+
+.post-list li:last-child {
+  border-bottom: 1px solid rgb(28 27 24 / 0.2);
+}
+
+.post-list time {
+  font-style: italic;
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+/* ----------------------------------------------------------------- post */
+
+.post-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.post-header h1 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+}
+
+.post-header time {
+  font-style: italic;
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.prose p {
+  margin: 0 0 1em;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.prose .opening {
+  display: flow-root; /* contain the initial when the paragraph is short */
+}
+
+.prose .opening::first-line {
+  letter-spacing: 0.08em;
+}
+
+/* The initial is the paragraph's ::first-letter. Fallback: floated and sized
+   by hand to roughly four lines. */
+.prose .opening::first-letter {
+  float: left;
+  font-family: var(--font-script), cursive;
+  font-size: 7.6em;
+  line-height: 0.8;
+  margin: 0.02em 0.22em 0 -0.04em;
+}
+
+/* Where supported, initial-letter sinks it exactly four lines, its baseline
+   on the fourth line's baseline, its cap line on the first line's. */
+@supports (initial-letter: 4) or (-webkit-initial-letter: 4) {
+  .prose .opening::first-letter {
+    float: none;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0 -3em 0 -0.06em;
+    -webkit-initial-letter: 4 3;
+    initial-letter: 4 3;
+  }
+}
+
+.lede {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+.ornament {
+  text-align: center;
+  margin: 1.4em 0 !important;
+  font-size: 15px;
+}
+
+.ornament.end {
+  margin-top: 2em !important;
+}
+
+.afterword p {
+  font-size: 14px;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.75;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .blog {
+    font-size: 16px;
+  }
+
+  .sheet {
+    padding: 48px 20px 96px;
+  }
+
+  .blog-nav {
+    margin-bottom: 48px;
+  }
+
+  @supports not ((initial-letter: 4) or (-webkit-initial-letter: 4)) {
+    .prose .opening::first-letter {
+      font-size: 6.6em;
+    }
+  }
+}

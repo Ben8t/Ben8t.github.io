@@ -5,7 +5,7 @@ Guidance for Claude Code (claude.ai/code) when working in this repository.
 ## Project Overview
 
 A deliberately tiny personal site for Benoit: one page, one interactive element,
-plus a plain `/games` link list.
+plus a plain `/games` link list and a `/blog`.
 Static Next.js export, deployed on Cloudflare at benventure.net.
 
 The governing constraint is **weight**. The page should feel like raw HTML.
@@ -18,7 +18,7 @@ answer is no. If something can be plain text instead of an asset, it should be.
 - React 19.1.0
 - TypeScript 5.8.3
 - **No CSS framework.** Plain CSS in `src/app/globals.css`.
-- **No web fonts.** The OS monospace stack (`ui-monospace, SFMono-Regular, …`).
+- **No web fonts** outside `/blog`. The OS monospace stack (`ui-monospace, SFMono-Regular, …`).
 - **No images.** The portrait is ASCII text in `src/app/portrait.ts`.
 - Runtime dependencies: `next`, `react`, `react-dom`, `posthog-js`. That is the
   whole list. `posthog-js` is the one deliberate exception to the weight rule.
@@ -47,6 +47,25 @@ deploys with no tracking and no error.
 No reverse proxy: the wizard's usual Next `rewrites` are incompatible with
 `output: 'export'`, so events go straight to PostHog's host.
 
+## Blog
+
+`/blog` is the one deliberate departure from the raw-HTML look: a printed page.
+
+- Posts are Markdown in `src/content/blog/<slug>.md`, registered (slug + date)
+  in `POSTS` in `src/app/blog/posts.ts`. The parser there is tiny on purpose:
+  `# ` title, blank line = paragraph, single newline = line break (as in the
+  file), `---` section break, `*em*`. Content after the last `---` renders as
+  the afterword.
+- The drop cap is `.opening::first-letter` with `initial-letter: 4 3` (sinks
+  three lines, rises one). Browsers without it get a hand-sized float.
+- Fonts: Libre Baskerville + Pinyon Script (drop cap, index heading) via
+  `next/font/google` in `blog/layout.tsx`, self-hosted at build and loaded
+  only on `/blog`.
+- `blog/Paper.tsx` is a WebGL fragment shader drawn once (and on resize) into
+  a fixed canvas, blended with `multiply` over the page so grain sits on the
+  ink too. No WebGL means flat paper colour.
+- Styles live in `blog/blog.css`, not `globals.css`.
+
 ## Commands
 
 ```bash
@@ -68,11 +87,13 @@ src/app/
   layout.tsx      html/body shell + metadata
   page.tsx        the home page
   games/page.tsx  /games: bullet list of links to the game subdomains
+  blog/           /blog index, [slug] post pages, paper shader, blog.css
   global-error.tsx  error boundary, reports to PostHog
   globals.css     the entire stylesheet
   portrait.ts     ASCII portrait as a template literal
   icon.png        BP monogram favicon
   apple-icon.png
+src/content/blog/  post Markdown files
 src/components/
   canvasui/DecryptReveal.tsx   vendored, see below
   rect-cache.ts                local fill-in for a missing canvasui dep
